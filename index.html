@@ -6,7 +6,36 @@
 <meta name="description" content="CKW Heating & Cooling Inc. — Cambridge, Ontario's trusted HVAC company. Installation, repair & maintenance of furnaces, AC, heat pumps & water heaters. 24/7 service. Call +1 437 388 1777.">
 <meta property="og:title" content="CKW Heating & Cooling Inc. | Cambridge, ON HVAC Company">
 <meta property="og:description" content="Residential & Commercial HVAC. TSSA Licensed. 24/7 Emergency Service across Southwestern Ontario.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zaddyjohn-cyber.github.io/ckw-hvac/">
+<meta property="og:image" content="https://zaddyjohn-cyber.github.io/ckw-hvac/images/ckw-van-side.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CKW Heating & Cooling Inc. | Cambridge, ON">
+<meta name="twitter:description" content="Residential & Commercial HVAC. TSSA Licensed. 24/7 Emergency Service.">
+<meta name="twitter:image" content="https://zaddyjohn-cyber.github.io/ckw-hvac/images/ckw-van-side.png">
+<meta name="theme-color" content="#1c2e54">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c2e54'/%3E%3Ctext x='50%25' y='54%25' font-size='30' text-anchor='middle' dominant-baseline='middle'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
 <title>CKW Heating &amp; Cooling Inc. | Cambridge, ON HVAC Company</title>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HVACBusiness",
+  "name":"CKW Heating & Cooling Inc.",
+  "image":"https://zaddyjohn-cyber.github.io/ckw-hvac/images/ckw-van-side.png",
+  "url":"https://zaddyjohn-cyber.github.io/ckw-hvac/",
+  "telephone":"+14373881777",
+  "email":"info@ckwheating.ca",
+  "priceRange":"$$",
+  "address":{"@type":"PostalAddress","addressLocality":"Cambridge","addressRegion":"ON","addressCountry":"CA"},
+  "areaServed":["Cambridge","Kitchener","Waterloo","Guelph","Brantford","Hamilton","Woodstock","Milton"],
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:00"}
+  ],
+  "description":"TSSA-licensed residential & commercial HVAC company in Cambridge, Ontario. Furnaces, air conditioning, heat pumps, water heaters, ventilation and duct work. 24/7 emergency service.",
+  "identifier":"TSSA-FS-R-52603",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"3"}
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -47,6 +76,21 @@ img{display:block;max-width:100%}
 .center .eyebrow{justify-content:center}
 .center .sec-lead{margin:0 auto}
 section{padding:90px 0}
+
+/* PROMO BANNER */
+.promobar{background:linear-gradient(90deg,#e53935,#ff6f00);color:#fff;text-align:center;font-size:.9rem;font-weight:600;font-family:'Poppins',sans-serif;padding:9px 40px 9px 16px;position:relative;letter-spacing:.02em}
+.promobar a{color:#fff;text-decoration:underline;font-weight:700}
+.promobar .x{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.25);border:none;color:#fff;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:.9rem;line-height:1}
+.promobar.hide{display:none}
+
+/* STICKY MOBILE CALL BAR */
+.mobilebar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:1500;background:#fff;box-shadow:0 -4px 20px rgba(28,46,84,.18);padding:8px;gap:8px;border-top:1px solid var(--line)}
+.mobilebar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:8px;font-family:'Poppins',sans-serif;font-weight:700;font-size:.95rem}
+.mobilebar .call{background:#36a04a;color:#fff;animation:callpulse 2s infinite}
+.mobilebar .quote{background:var(--blue);color:#fff}
+@keyframes callpulse{0%,100%{box-shadow:0 0 0 0 rgba(54,160,74,.5)}50%{box-shadow:0 0 0 8px rgba(54,160,74,0)}}
+@media(max-width:768px){.mobilebar{display:flex}body{padding-bottom:64px}}
+body.night .mobilebar{background:#13203b;border-color:#27344f}
 
 /* TOP BAR */
 .topbar{background:var(--navy);color:#cdd6e6;font-size:.85rem}
@@ -356,6 +400,18 @@ body.night #formok{background:#13203b}
 </style>
 </head>
 <body>
+
+<!-- PROMO BANNER -->
+<div class="promobar" id="promobar">
+  🔥❄️ Limited Time: <strong>$50 OFF</strong> your first service &amp; <strong>FREE estimates</strong> — <a href="#contact">Book Now</a>
+  <button class="x" id="promox" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- STICKY MOBILE CALL BAR -->
+<div class="mobilebar">
+  <a class="call" href="tel:+14373881777">📞 Call Now</a>
+  <a class="quote" href="#contact">💬 Free Quote</a>
+</div>
 
 <!-- TOP BAR -->
 <div class="topbar">
@@ -871,8 +927,19 @@ const cio=new IntersectionObserver((es)=>{es.forEach(e=>{
 });},{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 
+// ===== PROMO DISMISS =====
+(function(){
+  const bar=document.getElementById('promobar'),x=document.getElementById('promox');
+  if(!bar||!x) return;
+  try{ if(localStorage.getItem('ckw-promo')==='off') bar.classList.add('hide'); }catch(e){}
+  x.addEventListener('click',()=>{bar.classList.add('hide');try{localStorage.setItem('ckw-promo','off');}catch(e){}});
+})();
+
 // ===== FORM =====
-document.getElementById('cform').addEventListener('submit',function(e){
+// To make the form email you: sign up free at https://web3forms.com (takes 30 sec),
+// paste your access key below. Leave blank to keep a demo "thank you" with no email.
+const WEB3FORMS_KEY = '';
+document.getElementById('cform').addEventListener('submit',async function(e){
   e.preventDefault();
   let ok=true;
   const set=(id,cond)=>{const fg=document.getElementById(id);fg.classList.toggle('err',!cond);if(!cond)ok=false;};
@@ -882,10 +949,26 @@ document.getElementById('cform').addEventListener('submit',function(e){
   set('fg-name',name.length>0);
   set('fg-phone',phone.length>=10);
   set('fg-email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
-  if(ok){
-    document.getElementById('formok').style.display='block';
+  if(!ok) return;
+  const okBox=document.getElementById('formok');
+  const showOk=(msg)=>{okBox.textContent=msg;okBox.style.display='block';setTimeout(()=>okBox.style.display='none',6000);};
+  if(WEB3FORMS_KEY){
+    try{
+      const payload={
+        access_key:WEB3FORMS_KEY,
+        subject:'New quote request — CKW website',
+        name, email, phone:document.getElementById('i-phone').value,
+        service:document.getElementById('i-service').value,
+        property:document.getElementById('i-prop').value,
+        message:document.getElementById('i-msg').value
+      };
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)});
+      if(res.ok){ this.reset(); showOk('✅ Thank you! We’ve received your request and will be in touch shortly.'); }
+      else{ showOk('⚠️ Something went wrong. Please call +1 437 388 1777.'); }
+    }catch(err){ showOk('⚠️ Network error. Please call +1 437 388 1777.'); }
+  }else{
     this.reset();
-    setTimeout(()=>document.getElementById('formok').style.display='none',5000);
+    showOk('✅ Thank you! We’ll be in touch shortly.');
   }
 });
 </script>

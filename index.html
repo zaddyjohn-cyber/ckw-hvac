@@ -732,7 +732,7 @@ body.night #formok{background:#13203b}
 
 <script>
 // ===== IMAGE MAP =====
-const Q = '?q=90&w=3840&auto=format&fit=crop&dpr=2';
+const Q = '?q=80&w=1600&auto=format&fit=crop';
 // Unsplash stock (free for commercial use) — each used exactly ONCE on the site
 const IMAGES = {
   heroA:'https://images.unsplash.com/photo-1718203862467-c33159fdc504',
@@ -776,7 +776,10 @@ const FALLBACK = 'data:image/svg+xml;utf8,' + encodeURIComponent(
 // apply images
 document.querySelectorAll('img[data-img]').forEach(img=>{
   const key = img.getAttribute('data-img');
-  img.loading = 'lazy';
+  img.decoding = 'async';
+  // hero image loads immediately; everything else lazy-loads on scroll
+  if (img.closest('.hero-visual .big')) { img.loading='eager'; img.fetchPriority='high'; }
+  else { img.loading = 'lazy'; }
   if (LOCAL[key]) {
     img.src = LOCAL[key];
     img.onerror = function(){

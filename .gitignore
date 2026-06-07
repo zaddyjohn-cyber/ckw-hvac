@@ -1,0 +1,7 @@
+# Local preview tooling (not needed for hosting)
+server.ps1
+.claude/
+*.output
+
+# Stray/temp files
+images/Screenshot*.png

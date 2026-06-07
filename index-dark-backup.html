@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CKW Heating & Cooling Inc. — TSSA Licensed HVAC experts in Cambridge, ON. Furnace, AC, Heat Pumps, Water Heaters. 24/7 Emergency Service. Call (437) 388-1777">
+<meta property="og:title" content="CKW Heating & Cooling Inc. | Cambridge, ON HVAC Experts">
+<meta property="og:description" content="Residential & Commercial HVAC Services. TSSA Licensed. 24/7 Emergency. Cambridge, Kitchener, Waterloo, Guelph, Brantford.">
+<meta property="og:type" content="website">
+<title>CKW Heating & Cooling Inc. | Cambridge, ON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@400;600;700;800;900&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1565C0;
+  --blue-dark: #0D47A1;
+  --red: #E53935;
+  --orange: #FF6F00;
+  --ice: #81D4FA;
+  --white: #FFFFFF;
+  --navy: #0D1B2A;
+  --gray: #F4F6F9;
+  --text-dark: #1A1A2E;
+  --flame-grad: linear-gradient(135deg, #E53935, #FF6F00);
+  --ice-grad: linear-gradient(135deg, #81D4FA, #1565C0);
+  --blue-glow: rgba(21,101,192,0.35);
+  --navy-mid: #0F2236;
+  --ice-glow: rgba(129,212,250,0.25);
+  --accent-grad: linear-gradient(90deg, #81D4FA 0%, #1565C0 50%, #FF6F00 100%);
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.09);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:var(--text-dark);background:#fff;overflow-x:hidden;cursor:none}
+h1,h2,h3,h4,h5{font-family:'Exo 2',sans-serif;font-weight:800}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+button{cursor:none;font-family:'Nunito',sans-serif}
+
+/* CUSTOM CURSOR */
+#cursor{position:fixed;width:28px;height:28px;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform 0.1s;font-size:20px;line-height:28px;text-align:center}
+body.light-section #cursor::after{content:'❄️'}
+body:not(.light-section) #cursor::after{content:'🔥'}
+#cursor.cursor-hover{transform:translate(-50%,-50%) scale(1.5)}
+
+/* TRAILING CURSOR */
+#cursor-trail{position:fixed;width:40px;height:40px;border-radius:50%;border:1px solid rgba(129,212,250,0.3);pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:left 0.12s ease,top 0.12s ease,transform 0.3s ease,border-color 0.3s ease}
+body.light-section #cursor-trail{border-color:rgba(255,111,0,0.35)}
+#cursor-trail.cursor-hover{transform:translate(-50%,-50%) scale(2);border-color:rgba(129,212,250,0.6)}
+body.light-section #cursor-trail.cursor-hover{border-color:rgba(255,111,0,0.6)}
+
+/* ===== LOADING SCREEN ===== */
+#loader{position:fixed;inset:0;z-index:9999;background:#0D1B2A;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s ease;overflow:hidden}
+#loader.hide{opacity:0}
+.loader-corner{position:absolute;top:2rem;left:2rem;font-size:0.7rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.3em;opacity:0;transform:translateY(-20px);animation:loader-corner-in 0.8s ease 0.2s forwards}
+@keyframes loader-corner-in{to{opacity:1;transform:translateY(0)}}
+.loader-icons{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem}
+.loader-icons .li-flame{font-size:2.8rem;animation:flame-flicker 1.5s ease-in-out infinite}
+.loader-icons .li-snow{font-size:2.4rem;animation:snow-spin 6s linear infinite}
+.loader-words{height:7rem;display:flex;align-items:center;justify-content:center;position:relative;width:100%}
+.loader-word{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6rem);color:rgba(255,255,255,0.8);letter-spacing:0.1em;opacity:0;transform:translateY(20px)}
+.loader-word.active{animation:word-in 0.7s ease forwards}
+@keyframes word-in{0%{opacity:0;transform:translateY(20px)}25%,75%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-20px)}}
+.loader-counter{position:absolute;bottom:2rem;right:2rem;font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,8rem);color:#fff;opacity:0.9;font-variant-numeric:tabular-nums}
+.loader-bar{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,0.08)}
+.loader-bar-fill{height:100%;width:100%;background:var(--accent-grad);transform:scaleX(0);transform-origin:left;box-shadow:0 0 10px rgba(129,212,250,0.4)}
+
+/* NAV LINK UNDERLINE */
+.nav-links li a:not(.nav-emergency){position:relative}
+.nav-links li a:not(.nav-emergency)::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--ice-grad);transition:width 0.3s ease}
+.nav-links li a:not(.nav-emergency):hover::after{width:100%}
+.nav-emergency{position:relative}
+.nav-emergency::after{content:'';position:absolute;inset:0;border-radius:30px;border:1px solid rgba(229,57,53,0.4);animation:ring-out 2s ease-out infinite;pointer-events:none}
+
+/* HERO LAYERS */
+.hero-mesh{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 20% 60%, rgba(21,101,192,0.25) 0%, transparent 60%),radial-gradient(ellipse 60% 50% at 80% 40%, rgba(229,57,53,0.12) 0%, transparent 55%);pointer-events:none}
+.hero-lines{position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(129,212,250,0.012) 2px,rgba(129,212,250,0.012) 4px);animation:shimmer-scroll 6s linear infinite;pointer-events:none}
+@keyframes shimmer-scroll{to{background-position:0 -100px}}
+/* hero entrance gating */
+.hero-headline,.hero-sub,.hero-btns{animation-play-state:paused}
+body.loaded .hero-headline,body.loaded .hero-sub,body.loaded .hero-btns{animation-play-state:running}
+.hero-headline{animation:hero-headline-in 1s 0.2s cubic-bezier(0.16,1,0.3,1) forwards!important}
+@keyframes hero-headline-in{0%{opacity:0;transform:translateY(50px) skewY(2deg)}100%{opacity:1;transform:translateY(0) skewY(0)}}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+
+/* NAV */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:70px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s cubic-bezier(.25,.8,.25,1)}
+#navbar.scrolled{background:rgba(13,27,42,0.96);backdrop-filter:blur(16px);box-shadow:0 4px 30px rgba(0,0,0,0.5);border-bottom:1px solid rgba(255,255,255,0.06)}
+#navbar:not(.scrolled){background:transparent}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:none}
+.nav-logo-text{font-family:'Exo 2',sans-serif;font-weight:900;font-size:1.3rem;color:#fff;letter-spacing:1px}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.85);font-weight:600;font-size:0.9rem;transition:color 0.3s;letter-spacing:0.5px}
+.nav-links a:hover{color:#fff}
+.nav-links a.nav-active{color:#fff!important;text-shadow:0 0 12px rgba(129,212,250,0.5)}
+.nav-links li a.nav-active:not(.nav-emergency)::after{width:100%}
+#page-wipe{position:fixed;top:0;left:-100%;width:100%;height:2px;background:var(--accent-grad);z-index:9998;box-shadow:0 0 8px rgba(129,212,250,0.5);pointer-events:none}
+.hero-svg{position:absolute;right:-5%;bottom:0;width:42%;max-width:520px;opacity:0.09;z-index:1;pointer-events:none}
+.heat-wave{animation:heat-rise 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.heat-wave.hw2{animation-delay:0.8s}
+.heat-wave.hw3{animation-delay:1.6s}
+@keyframes heat-rise{0%,100%{transform:translateY(0);opacity:0.7}50%{transform:translateY(-18px);opacity:0.3}}
+.nav-emergency{background:var(--flame-grad);color:#fff!important;padding:8px 16px;border-radius:25px;font-weight:700;font-size:0.85rem;display:flex;align-items:center;gap:6px;animation:pulse-red 2s infinite;white-space:nowrap}
+@keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(229,57,53,0.5)}50%{box-shadow:0 0 0 8px rgba(229,57,53,0)}}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--navy);z-index:999;padding:80px 2rem 2rem;transition:right 0.4s cubic-bezier(.25,.8,.25,1);box-shadow:-5px 0 30px rgba(0,0,0,0.5)}
+.mobile-menu.open{right:0}
+.mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:0}
+.mobile-menu ul li{opacity:0;transform:translateX(30px);transition:all 0.3s}
+.mobile-menu.open ul li{opacity:1;transform:translateX(0)}
+.mobile-menu ul li:nth-child(1){transition-delay:0.1s}
+.mobile-menu ul li:nth-child(2){transition-delay:0.15s}
+.mobile-menu ul li:nth-child(3){transition-delay:0.2s}
+.mobile-menu ul li:nth-child(4){transition-delay:0.25s}
+.mobile-menu ul li:nth-child(5){transition-delay:0.3s}
+.mobile-menu ul li:nth-child(6){transition-delay:0.35s}
+.mobile-menu ul li:nth-child(7){transition-delay:0.4s}
+.mobile-menu ul li:nth-child(8){transition-delay:0.45s}
+.mobile-menu ul li a{display:block;padding:14px 0;color:#fff;font-size:1.1rem;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.08)}
+
+/* PAGES */
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+
+/* ===== ANIMATED LOGO ===== */
+.logo-wrap{display:inline-flex;flex-direction:column;align-items:center;gap:6px}
+.logo-wrap:hover .logo-inner{animation:logo-rumble 0.4s ease}
+@keyframes logo-rumble{0%,100%{transform:translateX(0)}15%{transform:translateX(-4px) rotate(-1deg)}30%{transform:translateX(4px) rotate(1deg)}45%{transform:translateX(-3px)}60%{transform:translateX(3px)}75%{transform:translateX(-2px)}90%{transform:translateX(2px)}}
+.logo-inner{display:flex;align-items:center;gap:12px}
+.logo-flame{font-size:2.5rem;animation:flame-flicker 1.5s ease-in-out infinite}
+@keyframes flame-flicker{0%,100%{transform:rotate(-3deg) scaleY(1);filter:drop-shadow(0 0 8px #FF6F00)}25%{transform:rotate(3deg) scaleY(1.05);filter:drop-shadow(0 0 14px #E53935)}50%{transform:rotate(-2deg) scaleY(0.97);filter:drop-shadow(0 0 10px #FF6F00)}75%{transform:rotate(4deg) scaleY(1.03);filter:drop-shadow(0 0 12px #E53935)}}
+.logo-snowflake{font-size:2.2rem;animation:snow-spin 6s linear infinite}
+@keyframes snow-spin{from{transform:rotate(0deg);filter:drop-shadow(0 0 6px #81D4FA)}to{transform:rotate(360deg);filter:drop-shadow(0 0 12px #81D4FA)}}
+.logo-letters{display:flex;gap:2px}
+.logo-letter{font-family:'Exo 2',sans-serif;font-weight:900;font-size:3rem;color:#fff;opacity:0;transform:scale(0.5);animation:letter-pop 0.5s cubic-bezier(.34,1.56,.64,1) forwards}
+.logo-letter:nth-child(1){animation-delay:0.1s;color:#81D4FA}
+.logo-letter:nth-child(2){animation-delay:0.25s;color:#fff}
+.logo-letter:nth-child(3){animation-delay:0.4s;color:#FF6F00}
+@keyframes letter-pop{to{opacity:1;transform:scale(1)}}
+.logo-tagline{font-family:'Exo 2',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.75);letter-spacing:3px;text-transform:uppercase;overflow:hidden;white-space:nowrap;width:0;animation:typewriter 1.5s steps(28) 0.8s forwards}
+@keyframes typewriter{to{width:260px}}
+
+/* NAV compact logo */
+.nav-flame{animation:flame-flicker 1.5s ease-in-out infinite;display:inline-block;font-size:1.4rem}
+.nav-snow{animation:snow-spin 6s linear infinite;display:inline-block;font-size:1.2rem}
+
+/* ===== HOME PAGE ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%, rgba(21,101,192,0.3) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(229,57,53,0.15) 0%, transparent 60%), var(--navy);z-index:0}
+.heat-shimmer{position:absolute;inset:0;z-index:1;overflow:hidden}
+.heat-shimmer::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.6;animation:shimmer-drift 8s ease-in-out infinite}
+@keyframes shimmer-drift{0%,100%{transform:translateY(0) scaleX(1)}50%{transform:translateY(-20px) scaleX(1.02)}}
+.frost-particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.frost-p{position:absolute;color:rgba(129,212,250,0.3);font-size:1rem;animation:frost-float linear infinite}
+@keyframes frost-float{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:0.5}100%{transform:translateY(-10vh) rotate(360deg);opacity:0}}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:900px}
+.hero-headline{font-size:clamp(2rem,5vw,4rem);color:#fff;margin:1.5rem 0 0.75rem;opacity:0;transform:translateY(40px);animation:fade-up 0.8s 1.2s cubic-bezier(.25,.8,.25,1) forwards}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.4rem);color:rgba(255,255,255,0.7);margin-bottom:2.5rem;opacity:0;transform:translateY(30px);animation:fade-up 0.8s 1.6s cubic-bezier(.25,.8,.25,1) forwards}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fade-up 0.8s 2s cubic-bezier(.25,.8,.25,1) forwards}
+.btn-flame{background:var(--flame-grad);color:#fff;padding:14px 32px;border-radius:30px;font-weight:700;font-size:1rem;border:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s cubic-bezier(.25,.8,.25,1)}
+.btn-flame:hover{transform:scale(1.05);box-shadow:0 8px 30px rgba(255,111,0,0.5)}
+.btn-ice{background:transparent;color:var(--ice);padding:14px 32px;border-radius:30px;font-weight:700;font-size:1rem;border:2px solid var(--ice);display:inline-flex;align-items:center;gap:8px;transition:all 0.3s cubic-bezier(.25,.8,.25,1);animation:ice-pulse 2s infinite}
+.btn-ice:hover{background:rgba(129,212,250,0.15);transform:scale(1.05);box-shadow:0 8px 30px rgba(129,212,250,0.3)}
+@keyframes ice-pulse{0%,100%{border-color:var(--ice)}50%{border-color:rgba(129,212,250,0.4)}}
+.scroll-arrow{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,0.5);animation:bounce-arrow 2s ease-in-out infinite;font-size:1.5rem}
+@keyframes bounce-arrow{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+@keyframes fade-up{to{opacity:1;transform:translateY(0)}}
+
+/* STATS BAR */
+.stats-bar{background:linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#0D47A1 100%);background-size:200% 100%;animation:gradient-shift 8s ease infinite;padding:3rem 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+@keyframes gradient-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.stat-card{text-align:center;padding:1.5rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(8px);border-radius:12px;opacity:0;transform:translateY(30px);transition:all 0.6s cubic-bezier(.25,.8,.25,1)}
+.stat-card.visible{opacity:1;transform:translateY(0)}
+.stat-card:hover{background:rgba(255,255,255,0.13);transform:translateY(-4px);border-color:rgba(129,212,250,0.3)}
+.stat-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 0.75rem}
+.stat-card.visible .stat-icon{animation:stat-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards}
+@keyframes stat-pop{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+.stat-label{font-family:'Exo 2',sans-serif;font-weight:700;color:#fff;font-size:0.95rem;letter-spacing:1px}
+
+/* SERVICES SNAPSHOT */
+.section{padding:5rem 2rem;position:relative}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);text-align:center;margin-bottom:0.5rem;position:relative;z-index:1}
+.section-subtitle{text-align:center;color:#666;font-size:1.1rem;margin-bottom:3rem;position:relative;z-index:1}
+.section-eyebrow{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:1rem;position:relative;z-index:1}
+.section-eyebrow span{font-size:0.75rem;letter-spacing:0.3em;color:var(--blue);font-weight:700;text-transform:uppercase}
+.section-eyebrow::before,.section-eyebrow::after{content:'';width:40px;height:2px;background:var(--accent-grad)}
+.section-watermark{position:absolute;left:50%;top:2.5rem;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:10rem;color:rgba(21,101,192,0.04);pointer-events:none;white-space:nowrap;z-index:0;line-height:1}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;perspective:1000px;transform-style:preserve-3d;position:relative;z-index:1}
+.svc-card{position:relative;background:#fff;border-radius:20px;padding:2rem;box-shadow:0 2px 8px rgba(0,0,0,0.06),0 8px 24px rgba(0,0,0,0.04),0 20px 40px rgba(0,0,0,0.02);transition:all 0.3s cubic-bezier(.25,.8,.25,1);cursor:none;transform-style:preserve-3d;border:1.5px solid rgba(21,101,192,0.08);opacity:0;transform:translateY(30px);overflow:hidden}
+.svc-card.visible{opacity:1;transform:translateY(0)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:20px 20px 0 0;background:var(--blue);z-index:2}
+.svc-card:has(.svc-icon.flame)::before{background:var(--flame-grad)}
+.svc-card:has(.svc-icon.ice)::before{background:var(--ice-grad)}
+.svc-card:has(.svc-icon.blue)::before{background:linear-gradient(90deg,var(--blue),var(--blue-dark))}
+.svc-card:hover{transform:translateY(-8px) rotateX(3deg) rotateY(-2deg);box-shadow:0 20px 60px rgba(21,101,192,0.15),0 0 0 1px rgba(21,101,192,0.15);border-color:var(--blue)}
+.tilt-shine{position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.06) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;z-index:1}
+.svc-card:hover .tilt-shine{opacity:1}
+.svc-icon{position:relative;z-index:2;width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;transition:box-shadow 0.3s}
+.svc-icon.flame{background:rgba(229,57,53,0.1)}
+.svc-icon.ice{background:rgba(129,212,250,0.15)}
+.svc-icon.blue{background:rgba(21,101,192,0.1)}
+.svc-card:hover .svc-icon.flame{box-shadow:0 0 20px rgba(229,57,53,0.2)}
+.svc-card:hover .svc-icon.ice{box-shadow:0 0 20px rgba(129,212,250,0.2)}
+.svc-card:hover .svc-icon.blue{box-shadow:0 0 20px rgba(21,101,192,0.2)}
+.svc-card h3,.svc-card p,.svc-link{position:relative;z-index:2}
+.svc-card h3{font-size:1.1rem;margin-bottom:0.5rem;color:var(--text-dark)}
+.svc-card p{font-size:0.9rem;color:#666;line-height:1.6}
+.svc-link{display:inline-block;margin-top:1rem;color:var(--blue);font-weight:700;font-size:0.9rem;transition:gap 0.2s}
+.svc-link:hover{gap:8px}
+
+/* MARQUEE */
+.marquee-strip{background:var(--blue);padding:1.2rem 0;overflow:hidden;white-space:nowrap;position:relative}
+.marquee-strip::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.02) 0px,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 10px);pointer-events:none}
+.marquee-inner{display:inline-block;animation:marquee 25s linear infinite;position:relative}
+.marquee-row2{opacity:0.6;margin-top:0.6rem}
+.marquee-row2 .marquee-inner{animation:marquee 35s linear infinite reverse}
+.marquee-inner span{color:#fff;font-weight:700;font-size:0.95rem;padding:0 1rem;letter-spacing:1px;display:inline-flex;align-items:center;gap:1rem}
+.marquee-inner span svg{vertical-align:middle}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* TESTIMONIALS */
+.testimonials{background:linear-gradient(180deg,var(--navy) 0%,#0a1520 100%);padding:5rem 2rem;position:relative;overflow:hidden}
+.testimonials::before{content:'\201C';position:absolute;top:-2rem;left:1rem;font-family:'Bebas Neue',sans-serif;font-size:18rem;color:rgba(21,101,192,0.05);line-height:1;pointer-events:none;z-index:0}
+.testimonials .section-title{color:#fff}
+.testimonials .section-subtitle{color:rgba(255,255,255,0.5)}
+.testimonial-carousel{max-width:800px;margin:0 auto;position:relative;overflow:hidden;z-index:1}
+.testimonial-track{display:flex;transition:transform 0.5s cubic-bezier(.25,.8,.25,1)}
+.testimonial-card{min-width:100%;padding:3rem;background:rgba(255,255,255,0.04);border-radius:24px;border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(16px);box-shadow:0 0 60px rgba(21,101,192,0.1),inset 0 1px 0 rgba(255,255,255,0.06)}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--blue);border:2px solid rgba(129,212,250,0.3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;color:#fff;margin-bottom:1.2rem}
+.stars{color:#FF6F00;font-size:1.2rem;margin-bottom:1rem;letter-spacing:2px}
+.testimonial-text{color:rgba(255,255,255,0.85);font-size:1.05rem;line-height:1.7;font-style:italic;margin-bottom:1.5rem}
+.testimonial-author{color:var(--ice);font-weight:700}
+.testimonial-location{color:rgba(255,255,255,0.4);font-size:0.85rem}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:1.5rem}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:none;transition:all 0.3s}
+.dot.active{background:var(--ice-grad);width:24px;border-radius:4px;box-shadow:0 0 8px rgba(129,212,250,0.5)}
+
+/* SERVICE AREAS */
+.areas-section{background:var(--gray);padding:5rem 2rem}
+.areas-map{max-width:800px;margin:0 auto}
+.areas-visual{background:linear-gradient(135deg,#1565C0 0%,#0D47A1 100%);border-radius:20px;padding:3rem;position:relative;overflow:hidden;margin-bottom:2rem}
+.area-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(129,212,250,0.12);border-radius:50%;animation:ring-expand 4s ease-out infinite;pointer-events:none}
+@keyframes ring-expand{0%{transform:translate(-50%,-50%) scale(0.3);opacity:0.8}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+.area-hq{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;font-size:0.85rem;white-space:nowrap}
+.area-hq-dot{width:12px;height:12px;border-radius:50%;background:var(--ice);box-shadow:0 0 12px var(--ice)}
+.areas-visual::before{content:'ONTARIO';position:absolute;font-family:'Exo 2',sans-serif;font-size:8rem;font-weight:900;color:rgba(255,255,255,0.04);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap}
+.city-pins{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;position:relative;z-index:1}
+.city-pin{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:10px 20px;border-radius:25px;font-weight:700;font-size:0.9rem;display:flex;align-items:center;gap:6px;cursor:none;transition:all 0.3s;opacity:0;transform:translateY(20px)}
+.city-pin.visible{opacity:1;transform:translateY(0)}
+.city-pin:hover{background:rgba(255,255,255,0.25);transform:translateY(-4px)}
+.city-pin::before{content:'📍';font-size:1rem}
+.areas-tagline{text-align:center;font-family:'Exo 2',sans-serif;font-size:1.3rem;font-weight:700;color:var(--blue)}
+
+/* EMERGENCY BANNER */
+.emergency-banner{background:linear-gradient(135deg,#7B0000,#E53935,#FF6F00,#E53935,#7B0000);background-size:300% 100%;animation:emergency-shift 4s ease infinite;padding:4rem 2rem;text-align:center;position:relative;overflow:hidden}
+@keyframes emergency-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.emergency-banner>*{position:relative;z-index:1}
+.emergency-banner h2{font-size:clamp(1.5rem,4vw,2.5rem);color:#fff;margin-bottom:0.75rem}
+.emergency-phone{font-family:'Exo 2',sans-serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:#fff;display:block;margin:1rem 0;animation:phone-flash 2s ease-in-out infinite;text-shadow:0 0 30px rgba(255,255,255,0.3)}
+@keyframes phone-flash{0%,100%{opacity:1}50%{opacity:0.7}}
+.emerg-flame{position:absolute;bottom:0;z-index:0;pointer-events:none;animation:flame-rise linear infinite}
+@keyframes flame-rise{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-120px);opacity:0}}
+
+/* FOOTER */
+footer{background:var(--navy);padding:4rem 2rem 1rem;color:rgba(255,255,255,0.7);position:relative;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:60px 60px}
+.footer-marquee{max-width:1200px;margin:0 auto 2.5rem;overflow:hidden;white-space:nowrap;background:rgba(255,255,255,0.02);border-radius:8px;padding:0.6rem 0}
+.footer-marquee:hover .marquee-inner{animation-play-state:paused}
+.footer-marquee .marquee-inner{animation:marquee 60s linear infinite}
+.footer-marquee .marquee-inner span{color:rgba(255,255,255,0.5);font-size:0.8rem;padding:0 1rem;letter-spacing:1px}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1200px;margin:0 auto;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08);position:relative}
+.footer-col h4{font-family:'Exo 2',sans-serif;color:#fff;font-size:1rem;letter-spacing:1px;margin-bottom:1rem;text-transform:uppercase;border-left:3px solid var(--blue);padding-left:10px}
+.avail-dot{width:8px;height:8px;border-radius:50%;background:#4CAF50;animation:pulse-green 2s infinite;display:inline-block;margin-right:6px;vertical-align:middle}
+@keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(76,175,80,0.5)}50%{box-shadow:0 0 0 6px rgba(76,175,80,0)}}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:0.5rem}
+.footer-col ul li a{color:rgba(255,255,255,0.55);font-size:0.9rem;transition:color 0.2s}
+.footer-col ul li a:hover{color:var(--ice)}
+.footer-bottom{max-width:1200px;margin:1.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.85rem;color:rgba(255,255,255,0.35)}
+.social-icons{display:flex;gap:1rem}
+.social-icon{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:0.9rem;transition:all 0.3s;cursor:none}
+.social-icon:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+
+/* ===== SERVICES PAGE ===== */
+.page-hero{background:linear-gradient(180deg,#0a1520 0%,var(--navy) 100%);padding:7rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(21,101,192,0.35) 0%, transparent 70%)}
+.page.active .page-hero h1{animation:hero-title-in 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) both}
+@keyframes hero-title-in{0%{opacity:0;transform:translateY(30px);filter:blur(6px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}
+.page-hero h1{font-size:clamp(2rem,5vw,3.5rem);color:#fff;position:relative;z-index:1;text-shadow:0 0 40px rgba(129,212,250,0.2)}
+.page-hero p{color:rgba(255,255,255,0.6);font-size:1.1rem;margin-top:0.75rem;position:relative;z-index:1}
+.breadcrumb{font-size:0.8rem;color:rgba(255,255,255,0.3);margin-top:1rem;position:relative;z-index:1}
+.services-blocks{max-width:1100px;margin:0 auto;padding:4rem 2rem}
+.svc-block{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:3rem 0;border-bottom:1px solid rgba(21,101,192,0.1)}
+.svc-block:nth-child(even){direction:rtl}
+.svc-block:nth-child(even)>*{direction:ltr}
+.svc-block-icon{position:relative;overflow:hidden;font-size:5rem;text-align:center;padding:2rem;background:linear-gradient(135deg,var(--navy),#0a1520);border:1px solid var(--glass-border);border-radius:24px;min-height:260px;display:flex;align-items:center;justify-content:center;color:#fff}
+.svc-block-icon>*{position:relative;z-index:2}
+/* per-block animated backgrounds */
+.sbg-heat{animation:sbg-heatpulse 4s ease-in-out infinite}
+@keyframes sbg-heatpulse{0%,100%{box-shadow:inset 0 0 40px rgba(229,57,53,0.15)}50%{box-shadow:inset 0 0 90px rgba(255,111,0,0.3)}}
+.sbg-cool{animation:sbg-coolpulse 4s ease-in-out infinite}
+@keyframes sbg-coolpulse{0%,100%{box-shadow:inset 0 0 40px rgba(21,101,192,0.15)}50%{box-shadow:inset 0 0 90px rgba(129,212,250,0.3)}}
+.sbg-vent::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(129,212,250,0.12) 50%,transparent 70%);background-size:200% 100%;animation:sbg-scan 3.5s linear infinite;z-index:1}
+@keyframes sbg-scan{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.sbg-water .water-bubble{position:absolute;bottom:10%;width:10px;height:10px;border-radius:50%;background:rgba(129,212,250,0.4);animation:bubble-rise linear infinite;z-index:1}
+@keyframes bubble-rise{0%{transform:translateY(0);opacity:0.7}100%{transform:translateY(-180px);opacity:0}}
+.sbg-duct{animation:sbg-dash 1s linear infinite;background-image:repeating-linear-gradient(90deg,rgba(129,212,250,0.25) 0 10px,transparent 10px 20px);background-size:40px 2px;background-repeat:repeat-x;background-position:0 6px,0 calc(100% - 6px)}
+@keyframes sbg-dash{to{background-position:40px 6px,40px calc(100% - 6px)}}
+.sbg-comm::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(129,212,250,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(129,212,250,0.06) 1px,transparent 1px);background-size:28px 28px;z-index:1}
+.svc-block h2{font-size:1.8rem;margin-bottom:1rem;color:var(--text-dark)}
+.svc-block p{color:#555;line-height:1.7;margin-bottom:1.5rem}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem}
+.svc-list li{display:flex;align-items:center;gap:8px;color:#444;font-size:0.95rem}
+.svc-list li::before{content:'✓';color:var(--blue);font-weight:700;font-size:1rem}
+.svc-block.reveal:nth-child(odd),.why-block.reveal:nth-child(odd){transform:translateX(-40px)}
+.svc-block.reveal:nth-child(even),.why-block.reveal:nth-child(even){transform:translateX(40px)}
+.svc-block.reveal.visible,.why-block.reveal.visible{transform:translateX(0)}
+.btn-blue{background:var(--blue);color:#fff;padding:12px 28px;border-radius:25px;font-weight:700;border:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s cubic-bezier(.25,.8,.25,1)}
+.btn-blue:hover{background:var(--blue-dark);transform:scale(1.04);box-shadow:0 6px 20px rgba(21,101,192,0.4)}
+
+/* ===== ABOUT PAGE ===== */
+.about-story{max-width:1100px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-img-wrap{border-radius:20px;overflow:hidden;position:relative;background:var(--navy);min-height:400px;display:flex;align-items:center;justify-content:center}
+.about-img-placeholder{text-align:center;color:rgba(255,255,255,0.5);padding:2rem}
+.about-img-placeholder .big-icon{font-size:5rem;margin-bottom:1rem}
+.about-text h2{font-size:2rem;margin-bottom:1rem;color:var(--text-dark)}
+.about-text p{color:#555;line-height:1.8;margin-bottom:1.5rem}
+.mission-box{background:var(--navy);color:#fff;padding:2rem;border-radius:16px;border-left:4px solid var(--blue);margin:2rem 0}
+.mission-box p{color:rgba(255,255,255,0.8);font-style:italic;font-size:1.05rem;line-height:1.7;margin:0}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:900px;margin:3rem auto;padding:0 2rem}
+.value-card{text-align:center;padding:1.5rem;background:var(--gray);border-radius:14px;transition:all 0.3s}
+.value-card:hover{background:var(--blue);color:#fff;transform:translateY(-4px);box-shadow:0 10px 30px rgba(21,101,192,0.3)}
+.value-card .v-icon{font-size:2rem;margin-bottom:0.5rem;transition:transform 0.3s}
+.value-card:hover .v-icon{transform:scale(1.3)}
+.value-card h4{font-size:0.95rem;letter-spacing:1px;text-transform:uppercase}
+.badges{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;padding:2rem}
+.badge{position:relative;overflow:hidden;background:var(--navy);color:#fff;padding:1rem 2rem;border-radius:12px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:0.9rem;opacity:0;transform:scale(0.8);transition:all 0.5s cubic-bezier(.34,1.56,.64,1)}
+.badge::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent);animation:badge-shimmer 3s ease-in-out infinite}
+@keyframes badge-shimmer{0%{left:-100%}60%,100%{left:100%}}
+/* MISSION BOX glow */
+.mission-box{box-shadow:-4px 0 20px rgba(21,101,192,0.3)}
+/* CSS VAN */
+.css-van{position:relative;width:220px;height:120px}
+.van-roof{position:absolute;top:8px;left:55px;width:120px;height:36px;background:#fff;border-radius:10px 10px 0 0}
+.van-body{position:absolute;top:40px;left:10px;width:200px;height:56px;background:#fff;border-radius:8px 8px 4px 4px;overflow:hidden}
+.van-body::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.7),transparent);animation:van-shine 3s ease-in-out infinite}
+@keyframes van-shine{0%{left:-100%}60%,100%{left:160%}}
+.van-window{position:absolute;top:14px;width:26px;height:22px;background:#81D4FA;opacity:0.6;border-radius:3px;z-index:2}
+.van-window.w1{left:62px}
+.van-window.w2{left:96px}
+.van-stripe{position:absolute;top:64px;left:14px;width:192px;height:20px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Exo 2',sans-serif;font-weight:900;color:#fff;font-size:0.85rem;letter-spacing:3px;z-index:2}
+.van-wheel{position:absolute;bottom:0;width:28px;height:28px;border-radius:50%;background:#333;border:5px solid #555;z-index:3}
+.van-wheel.left{left:36px}
+.van-wheel.right{right:36px}
+.badge.visible{opacity:1;transform:scale(1)}
+.badge-icon{font-size:1.5rem}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:900px;margin:3rem auto;padding:0 2rem}
+.team-card{background:var(--gray);border-radius:16px;overflow:hidden;text-align:center}
+.team-photo{height:180px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:4rem}
+.team-info{padding:1.25rem}
+.team-info h4{font-size:1rem;margin-bottom:0.25rem}
+.team-info p{font-size:0.85rem;color:#888}
+
+/* ===== WHY CHOOSE US ===== */
+.why-section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+.why-block{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:4rem 0;border-bottom:1px solid #eee}
+.why-block:nth-child(even){direction:rtl}
+.why-block:nth-child(even)>*{direction:ltr}
+.why-icon-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--navy);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 0 40px rgba(21,101,192,0.15),0 0 0 1px rgba(129,212,250,0.05);border-radius:20px;padding:3rem;text-align:center;color:#fff}
+.why-icon-wrap .big-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;font-weight:400;color:var(--ice);letter-spacing:0.05em;text-shadow:0 0 30px rgba(129,212,250,0.4)}
+.why-icon-wrap .w-icon{font-size:3rem;margin-bottom:1rem}
+.why-text h3{font-size:1.6rem;margin-bottom:1rem}
+.why-text p{color:#555;line-height:1.8}
+
+/* ===== SERVICE AREAS PAGE ===== */
+.areas-page{padding:4rem 2rem;max-width:1100px;margin:0 auto;position:relative}
+.ontario-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:14rem;color:rgba(21,101,192,0.02);pointer-events:none;z-index:0;white-space:nowrap}
+.areas-page>*{position:relative;z-index:1}
+.city-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem}
+.city-card{background:var(--gray);border-radius:14px;padding:1.5rem;text-align:center;cursor:none;transition:all 0.3s;border:2px solid transparent}
+.city-card:hover{border-color:var(--blue);background:#fff;transform:translateY(-4px);box-shadow:0 0 20px rgba(21,101,192,0.2),inset 0 0 20px rgba(21,101,192,0.05)}
+.no-city-cta .btn-flame{position:relative}
+.no-city-cta .btn-flame::after{content:'';position:absolute;inset:-4px;border-radius:30px;border:2px solid rgba(255,255,255,0.3);animation:ring-out 2s ease-out infinite;pointer-events:none}
+.city-card .c-icon{font-size:2rem;margin-bottom:0.5rem}
+.city-card h3{font-size:1rem;margin-bottom:0.25rem}
+.city-card .c-distance{font-size:0.8rem;color:#999}
+.city-card .c-time{font-size:0.8rem;color:var(--blue);font-weight:700;margin-top:0.25rem}
+.no-city-cta{background:var(--navy);color:#fff;border-radius:16px;padding:2rem;text-align:center;margin-top:3rem}
+.no-city-cta p{color:rgba(255,255,255,0.7);margin-top:0.5rem}
+
+/* ===== BLOG PAGE ===== */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1100px;margin:0 auto;padding:4rem 2rem}
+.blog-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:all 0.3s;cursor:none}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+.blog-filters{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;max-width:1100px;margin:0 auto;padding:0 2rem}
+.blog-pill{background:rgba(21,101,192,0.1);border:1px solid rgba(21,101,192,0.2);color:var(--blue);border-radius:20px;padding:6px 18px;cursor:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;transition:all 0.3s}
+.blog-pill.active{background:var(--blue);color:#fff}
+.blog-card{transition:all 0.3s,opacity 0.3s}
+.blog-card.hidden{display:none}
+.blog-thumb{position:relative;overflow:hidden;height:180px;background:linear-gradient(135deg,var(--blue),var(--navy));display:flex;align-items:center;justify-content:center;font-size:3rem}
+.blog-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.08) 50%,transparent 70%);background-size:200% 200%;background-position:150% 150%;transition:background-position 0.6s ease}
+.blog-card:hover .blog-thumb::after{background-position:-50% -50%}
+.blog-card:hover .blog-tag{box-shadow:0 0 8px rgba(21,101,192,0.2)}
+.blog-body{padding:1.5rem}
+.blog-tag{display:inline-block;background:rgba(21,101,192,0.1);color:var(--blue);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.75rem}
+.blog-body h3{font-size:1rem;margin-bottom:0.5rem;line-height:1.4}
+.blog-body p{font-size:0.875rem;color:#666;line-height:1.6;margin-bottom:1rem}
+.blog-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:#999}
+.blog-read-more{color:var(--blue);font-weight:700;font-size:0.85rem}
+
+/* ===== EMERGENCY PAGE ===== */
+.emergency-page{background:linear-gradient(135deg,#7B0000 0%,#1a0000 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:7rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
+.emergency-page::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%, rgba(229,57,53,0.3) 0%, transparent 60%);animation:emerg-pulse 3s ease-in-out infinite}
+@keyframes emerg-pulse{0%,100%{opacity:0.5}50%{opacity:1}}
+.emergency-content{position:relative;z-index:1;max-width:700px}
+.emergency-content h1{font-size:clamp(2rem,6vw,4rem);color:#fff;margin-bottom:1rem}
+.emerg-sub{color:rgba(255,255,255,0.7);font-size:1.1rem;margin-bottom:2rem}
+.big-phone{display:block;font-family:'Exo 2',sans-serif;font-size:clamp(2.5rem,7vw,5rem);font-weight:900;color:#fff;margin:2rem 0;text-decoration:none;transition:all 0.3s;position:relative}
+.big-phone{text-shadow:0 0 40px rgba(255,255,255,0.4)}
+.big-phone::after{content:'';position:absolute;inset:-10px;border-radius:20px;border:2px solid rgba(255,255,255,0.2);animation:ring-out 2s ease-out infinite}
+.big-phone::before{content:'';position:absolute;inset:-10px;border-radius:20px;border:2px solid rgba(255,255,255,0.15);animation:ring-out 2s ease-out 1s infinite}
+@keyframes ring-out{0%{transform:scale(0.95);opacity:1}100%{transform:scale(1.1);opacity:0}}
+.big-phone:hover{color:var(--orange);transform:scale(1.05)}
+.avail-badge{display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:10px 24px;border-radius:30px;font-weight:700;margin-bottom:2rem;font-size:0.95rem;animation:avail-pulse 2s infinite}
+@keyframes avail-pulse{0%,100%{box-shadow:0 0 0 0 rgba(76,175,80,0.5)}50%{box-shadow:0 0 0 10px rgba(76,175,80,0)}}
+.emerg-item{opacity:0;transform:translateX(-20px)}
+.page.active .emerg-item{animation:emerg-item-in 0.4s ease forwards}
+.emergency-list .emerg-item:nth-child(2){animation-delay:0.1s}
+.emergency-list .emerg-item:nth-child(3){animation-delay:0.2s}
+.emergency-list .emerg-item:nth-child(4){animation-delay:0.3s}
+.emergency-list .emerg-item:nth-child(5){animation-delay:0.4s}
+.emergency-list .emerg-item:nth-child(6){animation-delay:0.5s}
+.emergency-list .emerg-item:nth-child(7){animation-delay:0.6s}
+.emergency-list .emerg-item:nth-child(8){animation-delay:0.7s}
+@keyframes emerg-item-in{to{opacity:1;transform:translateX(0)}}
+.emergency-page .emerg-flame{position:absolute;bottom:0;z-index:0;pointer-events:none;animation:flame-rise linear infinite}
+.emergency-list{text-align:left;background:rgba(255,255,255,0.05);border-radius:16px;padding:2rem;margin:2rem 0;border:1px solid rgba(255,255,255,0.1)}
+.emergency-list h3{color:#fff;font-size:1.1rem;margin-bottom:1rem}
+.emerg-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.8);padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.95rem}
+.emerg-item:last-child{border:none}
+.emerg-item .e-icon{font-size:1.2rem;flex-shrink:0}
+.response-promise{background:rgba(255,255,255,0.08);border-radius:12px;padding:1.5rem;margin-top:1.5rem;color:#fff;font-weight:700;font-size:1rem}
+.btn-call{background:var(--flame-grad);color:#fff;padding:18px 40px;border-radius:35px;font-family:'Exo 2',sans-serif;font-weight:900;font-size:1.2rem;border:none;display:inline-flex;align-items:center;gap:10px;margin-top:1.5rem;transition:all 0.3s;text-decoration:none}
+.btn-call:hover{transform:scale(1.06);box-shadow:0 10px 40px rgba(229,57,53,0.5)}
+
+/* ===== CONTACT PAGE ===== */
+.contact-wrap{max-width:1100px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-form-panel h2{font-size:1.8rem;margin-bottom:0.5rem}
+.contact-form-panel p{color:#666;margin-bottom:2rem}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-weight:700;font-size:0.85rem;color:var(--text-dark);margin-bottom:6px;letter-spacing:0.5px;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.95rem;transition:all 0.3s;outline:none;color:var(--text-dark);background:#fff}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,0.15),0 0 20px rgba(21,101,192,0.08)}
+.form-group input.error,.form-group select.error,.form-group textarea.error{border-color:var(--red);box-shadow:0 0 0 4px rgba(229,57,53,0.1)}
+.error-msg{color:var(--red);font-size:0.8rem;margin-top:4px;display:none}
+.form-group.has-error .error-msg{display:block}
+.toggle-group{display:flex;gap:0}
+.toggle-btn{flex:1;padding:12px;border:2px solid #e0e0e0;background:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.9rem;transition:all 0.3s;cursor:none}
+.toggle-btn:first-child{border-radius:10px 0 0 10px;border-right:1px solid #e0e0e0}
+.toggle-btn:last-child{border-radius:0 10px 10px 0;border-left:1px solid #e0e0e0}
+.toggle-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.form-group textarea{height:120px;resize:vertical}
+.btn-submit{width:100%;padding:16px;border-radius:30px;border:none;font-family:'Exo 2',sans-serif;font-weight:800;font-size:1rem;color:#fff;background:linear-gradient(90deg,var(--blue),var(--orange),var(--blue));background-size:200% 100%;animation:gradient-shift 3s ease infinite;transition:all 0.3s;letter-spacing:1px}
+.btn-submit:hover{transform:scale(1.02);box-shadow:0 10px 40px rgba(21,101,192,0.45)}
+.check-svg{width:22px;height:22px;vertical-align:middle;margin-right:6px}
+.check-svg path{stroke:var(--blue);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:30;stroke-dashoffset:30;animation:check-draw 0.6s ease forwards}
+@keyframes check-draw{to{stroke-dashoffset:0}}
+.contact-info-panel h2{font-size:1.8rem;margin-bottom:1rem}
+.contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:1.5rem;padding:1rem;background:var(--gray);border-radius:12px;border-left:3px solid var(--blue);transition:box-shadow 0.3s}
+.contact-detail:hover{box-shadow:-3px 0 15px rgba(21,101,192,0.1)}
+.contact-detail .cd-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.contact-detail h4{font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:4px}
+.contact-detail p,.contact-detail a{font-weight:600;color:var(--text-dark);font-size:0.95rem}
+.contact-detail a:hover{color:var(--blue)}
+.map-embed{border-radius:16px;overflow:hidden;height:250px;background:var(--navy);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);font-size:0.9rem;position:relative;margin-top:2rem}
+.map-embed iframe{width:100%;height:100%;border:none;opacity:0.9}
+
+/* SECTION DIVIDERS */
+.divider-down{width:100%;overflow:hidden;line-height:0}
+.divider-down svg{display:block}
+
+/* GLASS PANEL */
+.glass{background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);border-radius:16px}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(.25,.8,.25,1),transform 0.7s cubic-bezier(.25,.8,.25,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-50px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal-right{opacity:0;transform:translateX(50px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal-scale{opacity:0;transform:scale(0.88);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal-left.visible,.reveal-right.visible,.reveal-scale.visible{opacity:1;transform:none}
+.reveal-d1{transition-delay:0.1s}
+.reveal-d2{transition-delay:0.2s}
+.reveal-d3{transition-delay:0.3s}
+.reveal-d4{transition-delay:0.4s}
+.reveal-d5{transition-delay:0.5s}
+
+/* CLIP-PATH DIVIDERS */
+.clip-blue{background:var(--blue);clip-path:polygon(0 0,100% 0,100% 85%,0 100%);padding-bottom:4rem}
+.clip-navy{background:var(--navy);clip-path:polygon(0 5%,100% 0,100% 100%,0 100%);padding-top:4rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-block,.why-block,.about-story,.contact-wrap{grid-template-columns:1fr}
+  .svc-block:nth-child(even),.why-block:nth-child(even){direction:ltr}
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .city-cards{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .services-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr;padding:2rem 1rem}
+  .footer-grid{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+  .city-cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:375px){
+  .stats-bar{grid-template-columns:1fr}
+  .city-cards{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+}
+
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  #loader{display:none!important}
+  #cursor-trail{display:none}
+  .marquee-inner{animation:none}
+  .frost-p{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-corner">CKW Heating &amp; Cooling Inc.</div>
+  <div class="loader-icons">
+    <span class="li-flame">🔥</span>
+    <span class="li-snow">❄️</span>
+  </div>
+  <div class="loader-words" id="loaderWords">
+    <span class="loader-word">Heating</span>
+    <span class="loader-word">Cooling</span>
+    <span class="loader-word">Comfort</span>
+    <span class="loader-word">Certified</span>
+  </div>
+  <div class="loader-counter" id="loaderCounter">000</div>
+  <div class="loader-bar"><div class="loader-bar-fill" id="loaderBarFill"></div></div>
+</div>
+
+<!-- PAGE WIPE -->
+<div id="page-wipe"></div>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#" onclick="navigate('home');closeMobile()">Home</a></li>
+    <li><a href="#" onclick="navigate('services');closeMobile()">Services</a></li>
+    <li><a href="#" onclick="navigate('about');closeMobile()">About</a></li>
+    <li><a href="#" onclick="navigate('why');closeMobile()">Why Choose Us</a></li>
+    <li><a href="#" onclick="navigate('areas');closeMobile()">Service Areas</a></li>
+    <li><a href="#" onclick="navigate('blog');closeMobile()">Blog</a></li>
+    <li><a href="#" onclick="navigate('emergency');closeMobile()">Emergency</a></li>
+    <li><a href="#" onclick="navigate('contact');closeMobile()">Contact</a></li>
+  </ul>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo" onclick="navigate('home')">
+    <span class="nav-flame">🔥</span>
+    <span class="nav-logo-text">CKW</span>
+    <span class="nav-snow">❄️</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="navigate('home');return false">Home</a></li>
+    <li><a href="#" onclick="navigate('services');return false">Services</a></li>
+    <li><a href="#" onclick="navigate('about');return false">About</a></li>
+    <li><a href="#" onclick="navigate('why');return false">Why Choose Us</a></li>
+    <li><a href="#" onclick="navigate('areas');return false">Service Areas</a></li>
+    <li><a href="#" onclick="navigate('blog');return false">Blog</a></li>
+    <li><a href="#" onclick="navigate('emergency');return false">Emergency</a></li>
+    <li><a href="#" onclick="navigate('contact');return false">Contact</a></li>
+    <li><a href="tel:+14373881777" class="nav-emergency">📞 24/7 Emergency · (437) 388-1777</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- PAGE: HOME -->
+<!-- ============================================================ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-mesh"></div>
+    <div class="hero-lines"></div>
+    <div class="heat-shimmer"></div>
+    <div class="frost-particles" id="frostParticles"></div>
+    <svg class="hero-svg" id="heroSvg" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- pipes -->
+      <rect x="70" y="20" width="14" height="60" fill="#81D4FA"/>
+      <rect x="116" y="20" width="14" height="60" fill="#81D4FA"/>
+      <!-- heat waves -->
+      <path class="heat-wave" d="M68 18 q6 -10 12 0 q6 10 12 0" stroke="rgba(255,111,0,0.7)" stroke-width="2" fill="none"/>
+      <path class="heat-wave hw2" d="M64 6 q6 -10 12 0 q6 10 12 0" stroke="rgba(255,111,0,0.7)" stroke-width="2" fill="none"/>
+      <path class="heat-wave hw3" d="M114 14 q6 -10 12 0 q6 10 12 0" stroke="rgba(255,111,0,0.7)" stroke-width="2" fill="none"/>
+      <!-- main body -->
+      <rect x="40" y="80" width="120" height="220" rx="8" fill="#81D4FA"/>
+      <!-- control panel -->
+      <rect x="52" y="92" width="96" height="44" rx="4" fill="rgba(129,212,250,0.4)"/>
+      <!-- dial -->
+      <circle cx="100" cy="114" r="14" fill="none" stroke="#81D4FA" stroke-width="2"/>
+      <!-- vent slats -->
+      <rect x="52" y="156" width="96" height="6" rx="3" fill="rgba(13,27,42,0.5)"/>
+      <rect x="52" y="174" width="96" height="6" rx="3" fill="rgba(13,27,42,0.5)"/>
+      <rect x="52" y="192" width="96" height="6" rx="3" fill="rgba(13,27,42,0.5)"/>
+      <rect x="52" y="210" width="96" height="6" rx="3" fill="rgba(13,27,42,0.5)"/>
+      <rect x="52" y="228" width="96" height="6" rx="3" fill="rgba(13,27,42,0.5)"/>
+      <rect x="52" y="246" width="96" height="6" rx="3" fill="rgba(13,27,42,0.5)"/>
+    </svg>
+    <div class="hero-content">
+      <div class="logo-wrap">
+        <div class="logo-inner">
+          <span class="logo-flame">🔥</span>
+          <div class="logo-letters">
+            <span class="logo-letter">C</span>
+            <span class="logo-letter">K</span>
+            <span class="logo-letter">W</span>
+          </div>
+          <span class="logo-snowflake">❄️</span>
+        </div>
+        <div class="logo-tagline">Heating and Cooling Inc.</div>
+      </div>
+      <h1 class="hero-headline">Your Comfort, Our Expertise</h1>
+      <p class="hero-sub">Residential &amp; Commercial HVAC · Cambridge, ON</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-flame" onclick="navigate('contact');return false">🔥 Get a Free Quote</a>
+        <a href="#" class="btn-ice" onclick="navigate('emergency');return false">❄️ Emergency Service</a>
+      </div>
+    </div>
+    <div class="scroll-arrow">▼</div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-card reveal reveal-d1">
+      <div class="stat-icon">🛡️</div>
+      <div class="stat-label">Licensed &amp; Insured</div>
+    </div>
+    <div class="stat-card reveal reveal-d2">
+      <div class="stat-icon">✅</div>
+      <div class="stat-label">TSSA Certified</div>
+    </div>
+    <div class="stat-card reveal reveal-d3">
+      <div class="stat-icon">🕐</div>
+      <div class="stat-label">24/7 Service</div>
+    </div>
+    <div class="stat-card reveal reveal-d4">
+      <div class="stat-icon">🏠</div>
+      <div class="stat-label">Residential &amp; Commercial</div>
+    </div>
+  </div>
+
+  <!-- SERVICES SNAPSHOT -->
+  <section class="section" style="background:var(--gray)">
+    <div class="section-watermark">HVAC</div>
+    <div class="section-eyebrow reveal"><span>Our Services</span></div>
+    <h2 class="section-title reveal">Our Services</h2>
+    <p class="section-subtitle reveal">Everything your home or business needs — installed right, the first time.</p>
+    <div class="services-grid">
+      <div class="svc-card reveal reveal-d1" data-tilt>
+        <div class="svc-icon flame">🔥</div>
+        <h3>Furnace Installation &amp; Repair</h3>
+        <p>High-efficiency furnace installation, emergency repairs, and seasonal tune-ups.</p>
+        <a class="svc-link" href="#" onclick="navigate('services');return false">Learn More →</a>
+      </div>
+      <div class="svc-card reveal reveal-d2" data-tilt>
+        <div class="svc-icon ice">❄️</div>
+        <h3>AC Installation &amp; Repair</h3>
+        <p>Central air, ductless mini-splits, and full seasonal maintenance programs.</p>
+        <a class="svc-link" href="#" onclick="navigate('services');return false">Learn More →</a>
+      </div>
+      <div class="svc-card reveal reveal-d3" data-tilt>
+        <div class="svc-icon blue">♻️</div>
+        <h3>Heat Pumps</h3>
+        <p>Air-source &amp; ground-source heat pump supply, installation, and service.</p>
+        <a class="svc-link" href="#" onclick="navigate('services');return false">Learn More →</a>
+      </div>
+      <div class="svc-card reveal reveal-d1" data-tilt>
+        <div class="svc-icon flame">🚿</div>
+        <h3>Water Heaters</h3>
+        <p>Traditional tank and tankless water heater installation, repair, and replacement.</p>
+        <a class="svc-link" href="#" onclick="navigate('services');return false">Learn More →</a>
+      </div>
+      <div class="svc-card reveal reveal-d2" data-tilt>
+        <div class="svc-icon ice">💨</div>
+        <h3>HRV / ERV Systems</h3>
+        <p>Whole-home ventilation systems that keep your air fresh and energy-efficient.</p>
+        <a class="svc-link" href="#" onclick="navigate('services');return false">Learn More →</a>
+      </div>
+      <div class="svc-card reveal reveal-d3" data-tilt>
+        <div class="svc-icon blue">🔧</div>
+        <h3>Duct Work</h3>
+        <p>Custom duct design, installation, sealing, repair, and duct cleaning.</p>
+        <a class="svc-link" href="#" onclick="navigate('services');return false">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>TSSA Licensed <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Liability Insured <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Free Estimates <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>No Hidden Fees <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Same-Day Service <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Financing Available <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>24/7 Emergency <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Residential &amp; Commercial <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span>
+      <span>TSSA Licensed <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Liability Insured <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Free Estimates <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>No Hidden Fees <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Same-Day Service <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Financing Available <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>24/7 Emergency <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span><span>Residential &amp; Commercial <svg width="8" height="12" viewBox="0 0 8 12"><path d="M4 0C2 3 0 5 1 8C2 11 6 11 7 8C8 5 6 3 4 0Z" fill="rgba(255,111,0,0.55)"/></svg></span>
+    </div>
+  </div>
+  <div class="marquee-strip marquee-row2">
+    <div class="marquee-inner">
+      <span>Residential &amp; Commercial</span><span>24/7 Emergency</span><span>Financing Available</span><span>Same-Day Service</span><span>No Hidden Fees</span><span>Free Estimates</span><span>Liability Insured</span><span>TSSA Licensed</span>
+      <span>Residential &amp; Commercial</span><span>24/7 Emergency</span><span>Financing Available</span><span>Same-Day Service</span><span>No Hidden Fees</span><span>Free Estimates</span><span>Liability Insured</span><span>TSSA Licensed</span>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <h2 class="section-title reveal">What Our Customers Say</h2>
+    <p class="section-subtitle reveal">Real reviews from real homeowners across Southwestern Ontario</p>
+    <div class="testimonial-carousel reveal">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Called CKW at 11pm when our furnace died in January. A technician was at our door within the hour. Unbelievable service — professional, clean, and fair pricing. These guys are the real deal."</p>
+          <div class="testimonial-author">Sarah M.</div>
+          <div class="testimonial-location">Cambridge, ON</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Had a new heat pump installed by CKW. The team was on time, incredibly knowledgeable, and left the workspace cleaner than they found it. Our energy bill dropped by 30%. Highly recommend!"</p>
+          <div class="testimonial-author">James T.</div>
+          <div class="testimonial-location">Kitchener, ON</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"CKW installed a tankless water heater and new HRV system for us. Best decision we ever made. Honest pricing, no upselling, and they explained everything clearly. Earned a customer for life."</p>
+          <div class="testimonial-author">Linda K.</div>
+          <div class="testimonial-location">Waterloo, ON</div>
+        </div>
+      </div>
+      <div class="carousel-dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="areas-section">
+    <h2 class="section-title reveal">Service Areas</h2>
+    <p class="section-subtitle reveal">Proudly Serving Southwestern Ontario</p>
+    <div class="areas-map">
+      <div class="areas-visual">
+        <div class="area-ring" style="width:100px;height:100px;animation-delay:0s"></div>
+        <div class="area-ring" style="width:200px;height:200px;animation-delay:1.3s"></div>
+        <div class="area-ring" style="width:320px;height:320px;animation-delay:2.6s"></div>
+        <div class="area-hq"><span class="area-hq-dot"></span>📍 Cambridge HQ</div>
+        <div class="city-pins">
+          <div class="city-pin reveal reveal-d1">Cambridge</div>
+          <div class="city-pin reveal reveal-d2">Kitchener</div>
+          <div class="city-pin reveal reveal-d3">Waterloo</div>
+          <div class="city-pin reveal reveal-d1">Guelph</div>
+          <div class="city-pin reveal reveal-d2">Brantford</div>
+          <div class="city-pin reveal reveal-d3">Hamilton</div>
+          <div class="city-pin reveal reveal-d1">Woodstock</div>
+          <div class="city-pin reveal reveal-d2">Milton</div>
+        </div>
+      </div>
+    </div>
+    <a href="#" onclick="navigate('areas');return false" style="display:block;text-align:center;margin-top:1rem">
+      <span class="btn-blue" style="display:inline-flex">View All Service Areas →</span>
+    </a>
+  </section>
+
+  <!-- EMERGENCY BANNER -->
+  <div class="emergency-banner">
+    <div class="emerg-flame" style="left:8%;font-size:1.2rem;animation-duration:5s;animation-delay:0s">🔥</div>
+    <div class="emerg-flame" style="left:24%;font-size:1.6rem;animation-duration:6.5s;animation-delay:1.2s">🔥</div>
+    <div class="emerg-flame" style="left:42%;font-size:1rem;animation-duration:4s;animation-delay:2s">🔥</div>
+    <div class="emerg-flame" style="left:60%;font-size:1.8rem;animation-duration:7s;animation-delay:0.6s">🔥</div>
+    <div class="emerg-flame" style="left:78%;font-size:1.3rem;animation-duration:5.5s;animation-delay:3s">🔥</div>
+    <div class="emerg-flame" style="left:92%;font-size:1.1rem;animation-duration:4.5s;animation-delay:1.8s">🔥</div>
+    <h2>Furnace Down at 2AM? We Show Up.</h2>
+    <p style="color:rgba(255,255,255,0.85);font-size:1.1rem">No matter the hour — we answer the call.</p>
+    <a href="tel:+14373881777" class="emergency-phone">📞 (437) 388-1777</a>
+    <a href="#" class="btn-flame" style="display:inline-flex;background:rgba(255,255,255,0.15);border:2px solid #fff" onclick="navigate('emergency');return false">Learn About Emergency Service</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-marquee">
+      <div class="marquee-inner">
+        <span>TSSA Licensed</span><span>Liability Insured</span><span>Free Estimates</span><span>No Hidden Fees</span><span>Same-Day Service</span><span>Financing Available</span><span>24/7 Emergency</span><span>Residential &amp; Commercial</span>
+        <span>TSSA Licensed</span><span>Liability Insured</span><span>Free Estimates</span><span>No Hidden Fees</span><span>Same-Day Service</span><span>Financing Available</span><span>24/7 Emergency</span><span>Residential &amp; Commercial</span>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem">
+          <span style="font-size:1.5rem">🔥</span>
+          <span style="font-family:'Exo 2',sans-serif;font-weight:900;color:#fff;font-size:1.2rem">CKW</span>
+          <span style="font-size:1.3rem">❄️</span>
+        </div>
+        <p style="font-size:0.85rem;line-height:1.7;color:rgba(255,255,255,0.4)">Honest, reliable comfort for every home and business in Southwestern Ontario. TSSA Licensed &amp; Fully Insured.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" onclick="navigate('services');return false">Furnace Installation</a></li>
+          <li><a href="#" onclick="navigate('services');return false">AC Installation</a></li>
+          <li><a href="#" onclick="navigate('services');return false">Heat Pumps</a></li>
+          <li><a href="#" onclick="navigate('services');return false">Water Heaters</a></li>
+          <li><a href="#" onclick="navigate('services');return false">HRV / ERV Systems</a></li>
+          <li><a href="#" onclick="navigate('services');return false">Duct Work</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#" onclick="navigate('about');return false">About Us</a></li>
+          <li><a href="#" onclick="navigate('why');return false">Why Choose Us</a></li>
+          <li><a href="#" onclick="navigate('blog');return false">Blog &amp; Tips</a></li>
+          <li><a href="#" onclick="navigate('emergency');return false">Emergency Service</a></li>
+          <li><a href="#" onclick="navigate('contact');return false">Get a Free Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+14373881777">(437) 388-1777</a></li>
+          <li><a href="mailto:info@ckwheating.ca">info@ckwheating.ca</a></li>
+          <li><a href="#">Cambridge, Ontario</a></li>
+        </ul>
+        <div class="social-icons" style="margin-top:1rem">
+          <a href="#" class="social-icon" title="Facebook">f</a>
+          <a href="#" class="social-icon" title="Google">G</a>
+          <a href="#" class="social-icon" title="Yelp">Y</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 CKW Heating and Cooling Inc. · Cambridge, ON · TSSA Licensed</p>
+      <p style="color:rgba(255,255,255,0.45);font-size:0.85rem"><span class="avail-dot"></span>Available for service</p>
+      <p style="color:rgba(255,255,255,0.2);font-size:0.75rem">All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: SERVICES -->
+<!-- ============================================================ -->
+<div id="page-services" class="page">
+  <div class="page-hero">
+    <h1>Full-Service HVAC Solutions</h1>
+    <p>From furnaces to ductwork — we handle it all with expertise and care.</p>
+    <div class="breadcrumb"></div>
+  </div>
+  <div class="services-blocks">
+
+    <div class="svc-block reveal">
+      <div class="svc-block-icon sbg-heat"><span>🔥</span></div>
+      <div>
+        <h2>Heating Services</h2>
+        <p>Keep your family warm all winter long. We service, repair, and install all makes and models of residential and commercial heating systems.</p>
+        <ul class="svc-list">
+          <li>Furnace Installation, Repair &amp; Maintenance</li>
+          <li>Boiler Systems</li>
+          <li>Radiant Heat</li>
+          <li>Heat Pumps (air-source &amp; ground-source)</li>
+          <li>Gas Piping</li>
+        </ul>
+        <a href="#" class="btn-blue" onclick="navigate('contact');return false">Get a Quote</a>
+      </div>
+    </div>
+
+    <div class="svc-block reveal">
+      <div class="svc-block-icon sbg-cool"><span>❄️</span></div>
+      <div>
+        <h2>Cooling Services</h2>
+        <p>Stay cool no matter how hot the summer gets. Our certified technicians install and maintain all major cooling systems.</p>
+        <ul class="svc-list">
+          <li>Central AC Installation &amp; Repair</li>
+          <li>Ductless Mini-Split Systems</li>
+          <li>AC Tune-Ups &amp; Seasonal Maintenance</li>
+          <li>Refrigerant Recharge</li>
+        </ul>
+        <a href="#" class="btn-blue" onclick="navigate('contact');return false">Get a Quote</a>
+      </div>
+    </div>
+
+    <div class="svc-block reveal">
+      <div class="svc-block-icon sbg-vent"><span>💨</span></div>
+      <div>
+        <h2>Ventilation &amp; Air Quality</h2>
+        <p>Breathe easier with professional indoor air quality solutions tailored to your home or business.</p>
+        <ul class="svc-list">
+          <li>HRV (Heat Recovery Ventilator) Install &amp; Service</li>
+          <li>ERV (Energy Recovery Ventilator)</li>
+          <li>Duct Cleaning &amp; Dryer Vent Cleaning</li>
+          <li>Humidifiers &amp; Dehumidifiers</li>
+          <li>UV Air Purifiers &amp; Air Filtration Systems</li>
+        </ul>
+        <a href="#" class="btn-blue" onclick="navigate('contact');return false">Get a Quote</a>
+      </div>
+    </div>
+
+    <div class="svc-block reveal">
+      <div class="svc-block-icon sbg-water"><span>🚿</span><div class="water-bubble" style="left:30%;animation-duration:4s;animation-delay:0s"></div><div class="water-bubble" style="left:45%;animation-duration:5.5s;animation-delay:1s"></div><div class="water-bubble" style="left:60%;animation-duration:4.5s;animation-delay:2s"></div><div class="water-bubble" style="left:52%;animation-duration:6s;animation-delay:0.5s"></div></div>
+      <div>
+        <h2>Water Heaters</h2>
+        <p>Hot water on demand — installed fast and backed by our quality guarantee.</p>
+        <ul class="svc-list">
+          <li>Traditional Tank Water Heaters</li>
+          <li>Tankless Water Heater Install &amp; Repair</li>
+          <li>Hot Water Tank Replacement</li>
+        </ul>
+        <a href="#" class="btn-blue" onclick="navigate('contact');return false">Get a Quote</a>
+      </div>
+    </div>
+
+    <div class="svc-block reveal">
+      <div class="svc-block-icon sbg-duct"><span>🔧</span></div>
+      <div>
+        <h2>Ductwork</h2>
+        <p>Properly designed and sealed ductwork is the backbone of any HVAC system. We do it right.</p>
+        <ul class="svc-list">
+          <li>Duct Design &amp; Installation</li>
+          <li>Duct Sealing &amp; Repair</li>
+          <li>Duct Modifications</li>
+        </ul>
+        <a href="#" class="btn-blue" onclick="navigate('contact');return false">Get a Quote</a>
+      </div>
+    </div>
+
+    <div class="svc-block reveal">
+      <div class="svc-block-icon sbg-comm"><span>🏢</span></div>
+      <div>
+        <h2>Commercial HVAC</h2>
+        <p>Keep your business comfortable year-round with our commercial HVAC expertise and preventive maintenance programs.</p>
+        <ul class="svc-list">
+          <li>Rooftop Units</li>
+          <li>Commercial Boilers</li>
+          <li>Preventive Maintenance Contracts</li>
+          <li>Emergency Commercial Repairs</li>
+        </ul>
+        <a href="#" class="btn-blue" onclick="navigate('contact');return false">Get a Quote</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Emergency Banner -->
+  <div class="emergency-banner">
+    <h2>Need Emergency HVAC Service?</h2>
+    <a href="tel:+14373881777" class="emergency-phone">📞 (437) 388-1777</a>
+    <a href="#" class="btn-flame" onclick="navigate('emergency');return false">Learn More About Emergency Service</a>
+  </div>
+
+  <!-- Footer repeat -->
+  <footer style="background:var(--navy);padding:2rem;text-align:center">
+    <p style="color:rgba(255,255,255,0.3);font-size:0.85rem">© 2025 CKW Heating and Cooling Inc. · Cambridge, ON · TSSA Licensed</p>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: ABOUT -->
+<!-- ============================================================ -->
+<div id="page-about" class="page">
+  <div class="page-hero">
+    <h1>About CKW Heating &amp; Cooling</h1>
+    <p>Built on trust, driven by expertise, grounded in community.</p>
+    <div class="breadcrumb"></div>
+  </div>
+
+  <div class="about-story">
+    <div class="about-img-wrap">
+      <div class="about-img-placeholder">
+        <div class="css-van">
+          <div class="van-roof"></div>
+          <div class="van-window w1"></div>
+          <div class="van-window w2"></div>
+          <div class="van-body"></div>
+          <div class="van-stripe">CKW</div>
+          <div class="van-wheel left"></div>
+          <div class="van-wheel right"></div>
+        </div>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;margin-top:1.5rem">CKW Service Van<br><span style="font-size:0.8rem;color:rgba(255,255,255,0.3)">(Photo coming soon)</span></p>
+      </div>
+    </div>
+    <div class="about-text">
+      <h2>Our Story</h2>
+      <p>CKW Heating &amp; Cooling Inc. was founded with a simple mission: provide honest, high-quality HVAC services to the families and businesses of Southwestern Ontario — without the runaround.</p>
+      <p>Based in Cambridge, ON, our TSSA-licensed technicians bring expertise and integrity to every job, whether it's a routine tune-up or a complex commercial installation.</p>
+      <div class="mission-box">
+        <p>"Honest, reliable comfort — for every home and business in Southwestern Ontario."</p>
+      </div>
+      <a href="#" class="btn-blue" onclick="navigate('contact');return false">Get a Free Quote Today</a>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:2rem 0 1rem">
+    <h2 style="font-size:2rem">Our Core Values</h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal reveal-d1"><div class="v-icon">🤝</div><h4>Integrity</h4></div>
+    <div class="value-card reveal reveal-d2"><div class="v-icon">⭐</div><h4>Quality</h4></div>
+    <div class="value-card reveal reveal-d3"><div class="v-icon">⚡</div><h4>Speed</h4></div>
+    <div class="value-card reveal reveal-d4"><div class="v-icon">❤️</div><h4>Community</h4></div>
+  </div>
+
+  <div style="text-align:center;padding:2rem 0 1rem">
+    <h2 style="font-size:2rem">Certifications &amp; Credentials</h2>
+  </div>
+  <div class="badges">
+    <div class="badge reveal reveal-d1"><span class="badge-icon">✅</span>TSSA Licensed Contractor</div>
+    <div class="badge reveal reveal-d2"><span class="badge-icon">🛡️</span>Fully Liability Insured</div>
+    <div class="badge reveal reveal-d3"><span class="badge-icon">🕐</span>24/7 Emergency Response</div>
+    <div class="badge reveal reveal-d4"><span class="badge-icon">🆓</span>Free Estimates</div>
+  </div>
+
+  <div style="text-align:center;padding:2rem 0 1rem">
+    <h2 style="font-size:2rem">Meet the Team</h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal reveal-d1">
+      <div class="team-photo">👷</div>
+      <div class="team-info"><h4>Lead Technician</h4><p>TSSA Certified · 10+ Years Experience</p></div>
+    </div>
+    <div class="team-card reveal reveal-d2">
+      <div class="team-photo">🔧</div>
+      <div class="team-info"><h4>HVAC Specialist</h4><p>Commercial &amp; Residential Expert</p></div>
+    </div>
+    <div class="team-card reveal reveal-d3">
+      <div class="team-photo">❄️</div>
+      <div class="team-info"><h4>Cooling Technician</h4><p>AC &amp; Heat Pump Specialist</p></div>
+    </div>
+  </div>
+
+  <footer style="background:var(--navy);padding:2rem;text-align:center;margin-top:3rem">
+    <p style="color:rgba(255,255,255,0.3);font-size:0.85rem">© 2025 CKW Heating and Cooling Inc. · Cambridge, ON · TSSA Licensed</p>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: WHY CHOOSE US -->
+<!-- ============================================================ -->
+<div id="page-why" class="page">
+  <div class="page-hero">
+    <h1>Why Choose CKW?</h1>
+    <p>Six reasons our customers keep coming back — and telling their neighbours.</p>
+    <div class="breadcrumb"></div>
+  </div>
+  <div class="why-section">
+    <div class="why-block reveal">
+      <div class="why-icon-wrap"><div class="w-icon">✅</div><div class="big-num">TSSA</div><p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-top:4px">Licensed</p></div>
+      <div class="why-text">
+        <h3>TSSA Licensed &amp; Fully Insured</h3>
+        <p>Our technicians hold active TSSA (Technical Standards and Safety Authority) certifications — the highest standard for gas and HVAC work in Ontario. Every job is fully insured for your peace of mind.</p>
+      </div>
+    </div>
+    <div class="why-block reveal">
+      <div class="why-icon-wrap"><div class="w-icon">🕐</div><div class="big-num">24/7</div></div>
+      <div class="why-text">
+        <h3>24/7 Emergency Response</h3>
+        <p>HVAC emergencies don't wait for business hours — and neither do we. Our technicians are available around the clock, 365 days a year. When you call, we answer.</p>
+      </div>
+    </div>
+    <div class="why-block reveal">
+      <div class="why-icon-wrap"><div class="w-icon">🆓</div><div class="big-num">FREE</div><p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-top:4px">Estimates</p></div>
+      <div class="why-text">
+        <h3>Free Estimates — No Hidden Fees</h3>
+        <p>We believe in transparent pricing. You'll know exactly what you're paying before any work begins. No surprise charges, no upselling — just honest quotes.</p>
+      </div>
+    </div>
+    <div class="why-block reveal">
+      <div class="why-icon-wrap"><div class="w-icon">🏢</div><div class="big-num">R&amp;C</div><p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-top:4px">Expertise</p></div>
+      <div class="why-text">
+        <h3>Residential AND Commercial Expertise</h3>
+        <p>From single-family homes to large commercial facilities, CKW has the equipment, licensing, and experience to handle any scale of HVAC project.</p>
+      </div>
+    </div>
+    <div class="why-block reveal">
+      <div class="why-icon-wrap"><div class="w-icon">💳</div><div class="big-num">$</div><p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-top:4px">Financing</p></div>
+      <div class="why-text">
+        <h3>Financing Options Available</h3>
+        <p>A new HVAC system is an investment. We work with you to find flexible financing options so you can get the system you need without breaking the bank.</p>
+      </div>
+    </div>
+    <div class="why-block reveal">
+      <div class="why-icon-wrap"><div class="w-icon">⚡</div><div class="big-num">FAST</div></div>
+      <div class="why-text">
+        <h3>Fast, Clean, Professional Installs</h3>
+        <p>We respect your home. Our technicians arrive on time, work efficiently, and leave your space cleaner than they found it. Most installations are completed same or next day.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="emergency-banner" style="margin-top:0">
+    <h2>Ready to Experience the CKW Difference?</h2>
+    <a href="#" class="btn-flame" style="display:inline-flex;margin-top:1rem;background:rgba(255,255,255,0.15);border:2px solid #fff" onclick="navigate('contact');return false">Get a Free Quote</a>
+  </div>
+
+  <footer style="background:var(--navy);padding:2rem;text-align:center">
+    <p style="color:rgba(255,255,255,0.3);font-size:0.85rem">© 2025 CKW Heating and Cooling Inc. · Cambridge, ON · TSSA Licensed</p>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: SERVICE AREAS -->
+<!-- ============================================================ -->
+<div id="page-areas" class="page">
+  <div class="page-hero">
+    <h1>Service Areas</h1>
+    <p>Proudly serving communities across Southwestern Ontario.</p>
+    <div class="breadcrumb"></div>
+  </div>
+  <div class="areas-page">
+    <div class="ontario-watermark">ONTARIO</div>
+    <h2 style="text-align:center;margin-bottom:0.5rem">Where We Work</h2>
+    <p style="text-align:center;color:#666;margin-bottom:2rem">Fast response times across the region — TSSA licensed technicians dispatched from Cambridge, ON.</p>
+    <div class="city-cards">
+      <div class="city-card reveal reveal-d1">
+        <div class="c-icon">📍</div>
+        <h3>Cambridge</h3>
+        <div class="c-distance">Our Home Base</div>
+        <div class="c-time">⚡ Fastest Response</div>
+      </div>
+      <div class="city-card reveal reveal-d2">
+        <div class="c-icon">📍</div>
+        <h3>Kitchener</h3>
+        <div class="c-distance">~10 km from base</div>
+        <div class="c-time">⚡ Under 30 min</div>
+      </div>
+      <div class="city-card reveal reveal-d3">
+        <div class="c-icon">📍</div>
+        <h3>Waterloo</h3>
+        <div class="c-distance">~15 km from base</div>
+        <div class="c-time">⚡ Under 30 min</div>
+      </div>
+      <div class="city-card reveal reveal-d4">
+        <div class="c-icon">📍</div>
+        <h3>Guelph</h3>
+        <div class="c-distance">~30 km from base</div>
+        <div class="c-time">🕐 Under 45 min</div>
+      </div>
+      <div class="city-card reveal reveal-d1">
+        <div class="c-icon">📍</div>
+        <h3>Brantford</h3>
+        <div class="c-distance">~35 km from base</div>
+        <div class="c-time">🕐 Under 45 min</div>
+      </div>
+      <div class="city-card reveal reveal-d2">
+        <div class="c-icon">📍</div>
+        <h3>Hamilton</h3>
+        <div class="c-distance">~55 km from base</div>
+        <div class="c-time">🕐 Under 60 min</div>
+      </div>
+      <div class="city-card reveal reveal-d3">
+        <div class="c-icon">📍</div>
+        <h3>Woodstock</h3>
+        <div class="c-distance">~45 km from base</div>
+        <div class="c-time">🕐 Under 60 min</div>
+      </div>
+      <div class="city-card reveal reveal-d4">
+        <div class="c-icon">📍</div>
+        <h3>Milton</h3>
+        <div class="c-distance">~50 km from base</div>
+        <div class="c-time">🕐 Under 60 min</div>
+      </div>
+    </div>
+    <div class="no-city-cta reveal">
+      <h3>Don't see your city?</h3>
+      <p>Call us — we travel! Our service area is always growing.</p>
+      <a href="tel:+14373881777" class="btn-flame" style="display:inline-flex;margin-top:1rem">📞 Call (437) 388-1777</a>
+    </div>
+  </div>
+
+  <footer style="background:var(--navy);padding:2rem;text-align:center;margin-top:3rem">
+    <p style="color:rgba(255,255,255,0.3);font-size:0.85rem">© 2025 CKW Heating and Cooling Inc. · Cambridge, ON · TSSA Licensed</p>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: BLOG -->
+<!-- ============================================================ -->
+<div id="page-blog" class="page" style="background:var(--gray);min-height:100vh">
+  <div class="page-hero">
+    <h1>HVAC Tips &amp; Insights</h1>
+    <p>Expert advice from our technicians to help you stay comfortable all year.</p>
+    <div class="breadcrumb"></div>
+  </div>
+  <div class="blog-filters">
+    <button class="blog-pill active" data-filter="all" onclick="filterBlog('all',this)">All</button>
+    <button class="blog-pill" data-filter="heating" onclick="filterBlog('heating',this)">Heating</button>
+    <button class="blog-pill" data-filter="cooling" onclick="filterBlog('cooling',this)">Cooling</button>
+    <button class="blog-pill" data-filter="seasonal tips" onclick="filterBlog('seasonal tips',this)">Seasonal</button>
+    <button class="blog-pill" data-filter="ventilation" onclick="filterBlog('ventilation',this)">Ventilation</button>
+    <button class="blog-pill" data-filter="emergency" onclick="filterBlog('emergency',this)">Emergency</button>
+    <button class="blog-pill" data-filter="comparison" onclick="filterBlog('comparison',this)">Comparison</button>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card reveal reveal-d1" data-category="heating">
+      <div class="blog-thumb">🔥</div>
+      <div class="blog-body">
+        <span class="blog-tag">Heating</span>
+        <h3>When Should You Replace Your Furnace?</h3>
+        <p>Age, repair frequency, and energy bills — here's how to know when it's time for a new unit.</p>
+        <div class="blog-meta"><span>5 min read</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal reveal-d2" data-category="comparison">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#00695C,#004D40)">♻️</div>
+      <div class="blog-body">
+        <span class="blog-tag">Comparison</span>
+        <h3>Heat Pump vs. Furnace: Which is Right for You?</h3>
+        <p>We break down the pros, cons, and costs of each system for Ontario homeowners.</p>
+        <div class="blog-meta"><span>7 min read</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal reveal-d3" data-category="seasonal tips">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#1565C0,#0D47A1)">❄️</div>
+      <div class="blog-body">
+        <span class="blog-tag">Seasonal Tips</span>
+        <h3>How to Prepare Your HVAC for a Canadian Winter</h3>
+        <p>A simple checklist every homeowner should follow before the first frost hits.</p>
+        <div class="blog-meta"><span>4 min read</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal reveal-d1" data-category="cooling">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#81D4FA,#1565C0)">🌡️</div>
+      <div class="blog-body">
+        <span class="blog-tag">Cooling</span>
+        <h3>Signs Your AC Needs Servicing Before Summer</h3>
+        <p>Catch problems early and avoid a breakdown on the hottest day of the year.</p>
+        <div class="blog-meta"><span>4 min read</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal reveal-d2" data-category="ventilation">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#2E7D32,#1B5E20)">💨</div>
+      <div class="blog-body">
+        <span class="blog-tag">Ventilation</span>
+        <h3>Understanding HRV vs ERV Systems</h3>
+        <p>Both improve air quality — but they work differently. Here's what you need to know.</p>
+        <div class="blog-meta"><span>6 min read</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </div>
+    <div class="blog-card reveal reveal-d3" data-category="emergency">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#E53935,#FF6F00)">⚡</div>
+      <div class="blog-body">
+        <span class="blog-tag">Emergency</span>
+        <h3>What to Do When Your Furnace Stops Working</h3>
+        <p>Step-by-step guide for when your heat goes out — and when to call the pros.</p>
+        <div class="blog-meta"><span>3 min read</span><span class="blog-read-more">Read More →</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--navy);padding:2rem;text-align:center;margin-top:2rem">
+    <p style="color:rgba(255,255,255,0.3);font-size:0.85rem">© 2025 CKW Heating and Cooling Inc. · Cambridge, ON · TSSA Licensed</p>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: EMERGENCY -->
+<!-- ============================================================ -->
+<div id="page-emergency" class="page">
+  <div class="emergency-page">
+    <div class="emerg-flame" style="left:6%;font-size:1.3rem;animation-duration:5s;animation-delay:0s">🔥</div>
+    <div class="emerg-flame" style="left:18%;font-size:1.7rem;animation-duration:6.5s;animation-delay:1.5s">🔥</div>
+    <div class="emerg-flame" style="left:32%;font-size:1.1rem;animation-duration:4.5s;animation-delay:0.8s">🔥</div>
+    <div class="emerg-flame" style="left:46%;font-size:1.9rem;animation-duration:7s;animation-delay:2.2s">🔥</div>
+    <div class="emerg-flame" style="left:58%;font-size:1.2rem;animation-duration:5.5s;animation-delay:0.4s">🔥</div>
+    <div class="emerg-flame" style="left:72%;font-size:1.6rem;animation-duration:6s;animation-delay:3s">🔥</div>
+    <div class="emerg-flame" style="left:84%;font-size:1rem;animation-duration:4s;animation-delay:1.8s">🔥</div>
+    <div class="emerg-flame" style="left:94%;font-size:1.4rem;animation-duration:6.8s;animation-delay:2.6s">🔥</div>
+    <div class="emergency-content">
+      <h1>HVAC Emergency?<br>We're Ready.</h1>
+      <p class="emerg-sub">Available 24 hours · 7 days a week · 365 days a year</p>
+      <div class="avail-badge">🟢 Technicians Available Now</div>
+      <a href="tel:+14373881777" class="big-phone">📞 (437) 388-1777</a>
+      <a href="tel:+14373881777" class="btn-call">📞 Call Now — We Answer</a>
+      <div class="emergency-list">
+        <h3>What counts as an HVAC emergency?</h3>
+        <div class="emerg-item"><span class="e-icon">🥶</span>No heat in winter — furnace failure</div>
+        <div class="emerg-item"><span class="e-icon">🔥</span>Gas smell or suspected gas leak</div>
+        <div class="emerg-item"><span class="e-icon">🌡️</span>AC failure during extreme heat warning</div>
+        <div class="emerg-item"><span class="e-icon">💧</span>Water heater burst or active leak</div>
+        <div class="emerg-item"><span class="e-icon">💨</span>Carbon monoxide alarm triggered</div>
+        <div class="emerg-item"><span class="e-icon">⚡</span>Complete HVAC system failure</div>
+        <div class="emerg-item"><span class="e-icon">🏢</span>Commercial facility breakdown</div>
+      </div>
+      <div class="response-promise">⚡ A technician dispatched within the hour — guaranteed.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: CONTACT -->
+<!-- ============================================================ -->
+<div id="page-contact" class="page" style="background:var(--gray)">
+  <div class="page-hero">
+    <h1>Get a Free Quote</h1>
+    <p>Tell us what you need — we'll get back to you fast.</p>
+    <div class="breadcrumb"></div>
+  </div>
+  <div class="contact-wrap">
+    <div class="contact-form-panel reveal">
+      <h2>Request Service</h2>
+      <p>Fill out the form and we'll contact you within 2 hours during business hours, or call <a href="tel:+14373881777" style="color:var(--blue);font-weight:700">(437) 388-1777</a> for immediate assistance.</p>
+      <form id="contactForm" onsubmit="submitForm(event)" novalidate>
+        <div class="form-group" id="fg-name">
+          <label>Full Name</label>
+          <input type="text" id="f-name" placeholder="John Smith">
+          <div class="error-msg">Please enter your name.</div>
+        </div>
+        <div class="form-group" id="fg-phone">
+          <label>Phone Number</label>
+          <input type="tel" id="f-phone" placeholder="(519) 555-0000">
+          <div class="error-msg">Please enter a valid phone number.</div>
+        </div>
+        <div class="form-group" id="fg-email">
+          <label>Email Address</label>
+          <input type="email" id="f-email" placeholder="john@example.com">
+          <div class="error-msg">Please enter a valid email address.</div>
+        </div>
+        <div class="form-group">
+          <label>Service Type</label>
+          <select id="f-service">
+            <option value="">— Select a service —</option>
+            <option>Heating</option>
+            <option>Cooling</option>
+            <option>Water Heater</option>
+            <option>Ventilation / Air Quality</option>
+            <option>Emergency</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Property Type</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-btn active" id="toggle-res" onclick="setToggle('residential')">🏠 Residential</button>
+            <button type="button" class="toggle-btn" id="toggle-com" onclick="setToggle('commercial')">🏢 Commercial</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" id="f-date">
+        </div>
+        <div class="form-group">
+          <label>Message / Description</label>
+          <textarea id="f-message" placeholder="Describe your issue or what you need..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">🔥 Send My Request</button>
+        <div id="form-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(21,101,192,0.1);border-radius:10px;color:var(--blue);font-weight:700;text-align:center">
+          <span id="form-success-check"></span>Thank you! We'll be in touch shortly.
+        </div>
+      </form>
+    </div>
+    <div class="contact-info-panel reveal reveal-d2">
+      <h2>Contact Info</h2>
+      <div class="contact-detail">
+        <span class="cd-icon">📞</span>
+        <div><h4>Phone</h4><a href="tel:+14373881777">(437) 388-1777</a></div>
+      </div>
+      <div class="contact-detail">
+        <span class="cd-icon">✉️</span>
+        <div><h4>Email</h4><a href="mailto:info@ckwheating.ca">info@ckwheating.ca</a></div>
+      </div>
+      <div class="contact-detail">
+        <span class="cd-icon">📍</span>
+        <div><h4>Location</h4><p>Cambridge, Ontario, Canada</p></div>
+      </div>
+      <div class="contact-detail">
+        <span class="cd-icon">🕐</span>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon–Fri: 8:00 AM – 6:00 PM</p>
+          <p>Sat: 9:00 AM – 4:00 PM</p>
+          <p style="color:var(--red);font-weight:700">24/7 Emergency Service Available</p>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92716.61!2d-80.5042216!3d43.3600536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b8887be8fa323%3A0x6ecfb8d65c6e7870!2sCambridge%2C%20ON!5e0!3m2!1sen!2sca!4v1234567890"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--navy);padding:2rem;text-align:center;margin-top:3rem">
+    <p style="color:rgba(255,255,255,0.3);font-size:0.85rem">© 2025 CKW Heating and Cooling Inc. · Cambridge, ON · TSSA Licensed</p>
+  </footer>
+</div>
+
+<script>
+// ==================== ROUTER ====================
+function navigate(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  // Update cursor section
+  const darkPages = ['home','emergency'];
+  document.body.classList.toggle('light-section', !darkPages.includes(page));
+  // Breadcrumb injection
+  const crumbLabels = {home:'Home',services:'Services',about:'About',why:'Why Choose Us',areas:'Service Areas',blog:'Blog',emergency:'Emergency',contact:'Contact'};
+  const activePage = document.getElementById('page-' + page);
+  const crumb = activePage ? activePage.querySelector('.breadcrumb') : null;
+  if (crumb && crumbLabels[page]) crumb.textContent = 'Home › ' + crumbLabels[page];
+  // Active nav link highlight
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('nav-active');
+    const oc = a.getAttribute('onclick') || '';
+    if (oc.indexOf("navigate('" + page + "')") !== -1) a.classList.add('nav-active');
+  });
+  // Page wipe transition
+  const wipe = document.getElementById('page-wipe');
+  if (wipe) {
+    wipe.style.transition = 'none';
+    wipe.style.left = '-100%';
+    requestAnimationFrame(() => {
+      wipe.style.transition = 'left 0.4s ease';
+      wipe.style.left = '100%';
+      setTimeout(() => { wipe.style.transition = 'none'; wipe.style.left = '-100%'; }, 450);
+    });
+  }
+  // Re-run reveal for new page
+  setTimeout(initReveal, 100);
+}
+
+// ==================== BLOG FILTER ====================
+function filterBlog(cat, btn) {
+  document.querySelectorAll('.blog-pill').forEach(p => p.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('.blog-card').forEach(card => {
+    const match = cat === 'all' || card.getAttribute('data-category') === cat;
+    card.classList.toggle('hidden', !match);
+  });
+}
+
+// ==================== NAVBAR ====================
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ==================== MOBILE MENU ====================
+function toggleMobile() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// ==================== CUSTOM CURSOR ====================
+const cursor = document.getElementById('cursor');
+const cursorTrail = document.getElementById('cursor-trail');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  if (cursorTrail) {
+    cursorTrail.style.left = e.clientX + 'px';
+    cursorTrail.style.top = e.clientY + 'px';
+  }
+});
+document.addEventListener('mouseover', e => {
+  if (e.target.closest('a, button, [data-tilt]')) {
+    cursor.classList.add('cursor-hover');
+    if (cursorTrail) cursorTrail.classList.add('cursor-hover');
+  }
+});
+document.addEventListener('mouseout', e => {
+  if (e.target.closest('a, button, [data-tilt]')) {
+    cursor.classList.remove('cursor-hover');
+    if (cursorTrail) cursorTrail.classList.remove('cursor-hover');
+  }
+});
+
+// ==================== LOADING SCREEN ====================
+(function() {
+  const loader = document.getElementById('loader');
+  if (!loader) { document.body.classList.add('loaded'); return; }
+  const words = document.querySelectorAll('.loader-word');
+  const counterEl = document.getElementById('loaderCounter');
+  const barFill = document.getElementById('loaderBarFill');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Word cycling
+  let wi = 0;
+  function showWord(i) {
+    words.forEach(w => w.classList.remove('active'));
+    if (words[i]) words[i].classList.add('active');
+  }
+  let wordTimer;
+  if (reduce) {
+    showWord(words.length - 1);
+  } else {
+    showWord(0);
+    wordTimer = setInterval(() => { wi = (wi + 1) % words.length; showWord(wi); }, 700);
+  }
+
+  function finish() {
+    if (wordTimer) clearInterval(wordTimer);
+    counterEl.textContent = '100';
+    barFill.style.transform = 'scaleX(1)';
+    setTimeout(() => {
+      loader.classList.add('hide');
+      setTimeout(() => { loader.style.display = 'none'; }, 600);
+      document.body.classList.add('loaded');
+    }, 400);
+  }
+
+  if (reduce) { finish(); return; }
+
+  const duration = 2700;
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const val = Math.floor(p * 100);
+    counterEl.textContent = String(val).padStart(3, '0');
+    barFill.style.transform = 'scaleX(' + p + ')';
+    if (p < 1) { requestAnimationFrame(tick); } else { finish(); }
+  }
+  requestAnimationFrame(tick);
+  // Failsafe: force hide after 3.5s
+  setTimeout(() => {
+    if (loader.style.display !== 'none') finish();
+  }, 3500);
+})();
+
+// ==================== FROST PARTICLES ====================
+(function() {
+  const container = document.getElementById('frostParticles');
+  if (!container) return;
+  const snowflakes = ['❄','❅','❆','*','+'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'frost-p';
+    p.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.fontSize = (0.6 + Math.random() * 1) + 'rem';
+    container.appendChild(p);
+  }
+})();
+
+// ==================== SCROLL REVEAL ====================
+function initReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stat-card, .svc-card, .city-pin, .badge').forEach(el => {
+    observer.observe(el);
+  });
+}
+initReveal();
+
+// ==================== STAGE 4: APPLY REVEAL VARIANTS ====================
+(function() {
+  // svc-block / why-block: left col (icon) from left, right col (text) from right
+  document.querySelectorAll('.svc-block, .why-block').forEach(block => {
+    const cols = block.children;
+    if (cols[0]) cols[0].classList.add('reveal-left');
+    if (cols[1]) cols[1].classList.add('reveal-right');
+  });
+  // about-story: image left, text right
+  document.querySelectorAll('.about-story').forEach(block => {
+    const cols = block.children;
+    if (cols[0]) cols[0].classList.add('reveal-left');
+    if (cols[1]) cols[1].classList.add('reveal-right');
+  });
+  // badges + value cards: scale
+  document.querySelectorAll('.value-card').forEach(el => el.classList.add('reveal-scale'));
+  // re-observe newly tagged elements
+  initReveal();
+})();
+
+// ==================== TESTIMONIAL CAROUSEL ====================
+let currentSlide = 0;
+const totalSlides = 3;
+function goToSlide(n) {
+  currentSlide = n;
+  document.getElementById('testimonialTrack').style.transform = `translateX(-${n * 100}%)`;
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === n));
+}
+setInterval(() => goToSlide((currentSlide + 1) % totalSlides), 5000);
+
+// ==================== STAGE 2 ENHANCEMENTS ====================
+// Testimonial avatar initials
+document.querySelectorAll('.testimonial-card').forEach(card => {
+  const authorEl = card.querySelector('.testimonial-author');
+  if (authorEl && !card.querySelector('.testimonial-avatar')) {
+    const initials = authorEl.textContent.trim().charAt(0).toUpperCase();
+    const avatar = document.createElement('div');
+    avatar.className = 'testimonial-avatar';
+    avatar.textContent = initials;
+    card.insertBefore(avatar, card.firstChild);
+  }
+});
+// City pin stagger
+document.querySelectorAll('.city-pins .city-pin').forEach((pin, i) => {
+  pin.style.transitionDelay = (i * 80) + 'ms';
+});
+// Inject tilt-shine layers
+document.querySelectorAll('[data-tilt]').forEach(card => {
+  if (!card.querySelector('.tilt-shine')) {
+    const shine = document.createElement('div');
+    shine.className = 'tilt-shine';
+    card.appendChild(shine);
+  }
+});
+
+// ==================== 3D CARD TILT ====================
+document.addEventListener('mousemove', (e) => {
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const inside = Math.abs(x) < rect.width/2 && Math.abs(y) < rect.height/2;
+    const shine = card.querySelector('.tilt-shine');
+    if (inside) {
+      const rotX = (-y / rect.height) * 10;
+      const rotY = (x / rect.width) * 12;
+      card.style.transition = 'transform 0.1s ease';
+      card.style.transform = `translateY(-8px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      if (shine) {
+        const px = ((e.clientX - rect.left) / rect.width) * 100;
+        const py = ((e.clientY - rect.top) / rect.height) * 100;
+        shine.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255,255,255,0.06) 0%, transparent 60%)`;
+        shine.style.opacity = '1';
+      }
+    } else {
+      card.style.transition = 'transform 0.5s cubic-bezier(0.25,0.8,0.25,1)';
+      card.style.transform = '';
+      if (shine) shine.style.opacity = '0';
+    }
+  });
+});
+
+// ==================== HERO PARALLAX ====================
+window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.querySelector('.hero-bg').style.transform = `translateY(${window.scrollY * 0.3}px)`;
+    const heroSvg = document.getElementById('heroSvg');
+    if (heroSvg) heroSvg.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+    const frost = document.getElementById('frostParticles');
+    if (frost) frost.style.transform = `translateY(${window.scrollY * -0.05}px)`;
+  }
+});
+
+// ==================== FORM TOGGLE ====================
+function setToggle(type) {
+  document.getElementById('toggle-res').classList.toggle('active', type === 'residential');
+  document.getElementById('toggle-com').classList.toggle('active', type === 'commercial');
+}
+
+// ==================== FORM VALIDATION ====================
+function submitForm(e) {
+  e.preventDefault();
+  let valid = true;
+  const name = document.getElementById('f-name');
+  const phone = document.getElementById('f-phone');
+  const email = document.getElementById('f-email');
+  // Validate name
+  const fgName = document.getElementById('fg-name');
+  if (!name.value.trim()) { fgName.classList.add('has-error'); name.classList.add('error'); valid = false; }
+  else { fgName.classList.remove('has-error'); name.classList.remove('error'); }
+  // Validate phone
+  const fgPhone = document.getElementById('fg-phone');
+  if (!phone.value.trim() || phone.value.replace(/\D/g,'').length < 10) { fgPhone.classList.add('has-error'); phone.classList.add('error'); valid = false; }
+  else { fgPhone.classList.remove('has-error'); phone.classList.remove('error'); }
+  // Validate email
+  const fgEmail = document.getElementById('fg-email');
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRe.test(email.value)) { fgEmail.classList.add('has-error'); email.classList.add('error'); valid = false; }
+  else { fgEmail.classList.remove('has-error'); email.classList.remove('error'); }
+  if (valid) {
+    const checkEl = document.getElementById('form-success-check');
+    if (checkEl) checkEl.innerHTML = '<svg class="check-svg" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>';
+    document.getElementById('form-success').style.display = 'block';
+    document.getElementById('contactForm').reset();
+    setTimeout(() => document.getElementById('form-success').style.display = 'none', 5000);
+  }
+}
+
+// ==================== SECTION CURSOR TOGGLE ====================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const bg = window.getComputedStyle(entry.target).backgroundColor;
+      const isLight = bg.includes('244') || bg.includes('255');
+      document.body.classList.toggle('light-section', isLight);
+    }
+  });
+}, {threshold: 0.5});
+document.querySelectorAll('section, .page-hero, .stats-bar').forEach(s => observer.observe(s));
+
+// ==================== INITIAL NAV ACTIVE (home) ====================
+(function() {
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const oc = a.getAttribute('onclick') || '';
+    if (oc.indexOf("navigate('home')") !== -1) a.classList.add('nav-active');
+  });
+})();
+</script>
+</body>
+</html>

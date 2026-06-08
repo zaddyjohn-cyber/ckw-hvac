@@ -106,6 +106,7 @@ nav.main{display:flex;align-items:center;justify-content:space-between;height:74
 .logo{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.45rem;color:var(--navy)}
 .logo .mark{display:inline-flex;align-items:center;font-size:1.5rem}
 .logo span{color:var(--blue)}
+.navlogo-img{height:46px;width:auto;display:block;border-radius:6px}
 .navlinks{display:flex;align-items:center;gap:30px;list-style:none}
 .navlinks a{font-family:'Poppins',sans-serif;font-weight:500;font-size:.95rem;color:var(--ink);transition:.2s;position:relative}
 .navlinks a:hover{color:var(--blue)}
@@ -440,7 +441,7 @@ body.night #formok{background:#13203b}
 <header>
   <div class="container">
     <nav class="main">
-      <a href="#home" class="logo"><span class="mark"><span class="flamemk">🔥</span><span class="snowmk">❄️</span></span>CKW <span>HVAC</span></a>
+      <a href="#home" class="logo"><img src="images/ckw-logo.png" alt="CKW Heating and Cooling Inc." class="navlogo-img" onerror="this.outerHTML='&lt;span class=\'mark\'&gt;🔥❄️&lt;/span&gt;CKW &lt;span style=\'color:var(--blue)\'&gt;HVAC&lt;/span&gt;'"></a>
       <ul class="navlinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>

@@ -130,6 +130,13 @@ nav.main{display:flex;align-items:center;justify-content:space-between;height:74
 .trust .stars{color:var(--star);font-size:1.05rem;letter-spacing:1px}
 .trust h4{font-size:.95rem;margin-bottom:2px}
 .trust small{color:var(--muted)}
+/* hero animated logo */
+.herologo-wrap{perspective:1100px;margin-bottom:22px}
+.herologo{display:inline-block;width:min(460px,82%);filter:drop-shadow(0 14px 30px rgba(28,46,84,.22));transform-style:preserve-3d;animation:logoRoll 6.5s ease-in-out infinite}
+.herologo img{display:block;width:100%;border-radius:10px;animation:logoBreathe 3.6s ease-in-out infinite}
+@keyframes logoRoll{0%,100%{transform:rotateY(-9deg) rotateZ(-1.2deg)}50%{transform:rotateY(9deg) rotateZ(1.2deg)}}
+@keyframes logoBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@media(prefers-reduced-motion:reduce){.herologo,.herologo img{animation:none}}
 /* hero visual collage */
 .hero-visual{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px}
 .hero-visual .big{grid-column:1 / -1;border-radius:14px;overflow:hidden;height:230px;box-shadow:0 18px 40px rgba(28,46,84,.18)}
@@ -465,6 +472,9 @@ body.night #formok{background:#13203b}
   <div class="particles" id="heroParticles"></div>
   <div class="container">
     <div class="rv">
+      <div class="herologo-wrap">
+        <div class="herologo"><img src="images/ckw-logo.png" alt="CKW Heating and Cooling Inc. logo" onerror="this.closest('.herologo-wrap').style.display='none'"></div>
+      </div>
       <span class="eyebrow">Welcome to CKW Heating &amp; Cooling</span>
       <h1>Cambridge's Trusted <span>Heating &amp; Cooling</span> Company</h1>
       <p class="lead">We specialize in residential &amp; commercial HVAC — furnaces, air conditioning, heat pumps, water heaters and ventilation. TSSA-licensed technicians dedicated to keeping you comfortable all year round.</p>

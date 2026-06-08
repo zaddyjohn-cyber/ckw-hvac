@@ -1,0 +1,13 @@
+{
+  "name": "CKW Heating & Cooling Inc.",
+  "short_name": "CKW HVAC",
+  "description": "TSSA-licensed HVAC company in Cambridge, ON. Furnaces, AC, heat pumps, water heaters. 24/7 service.",
+  "start_url": "/ckw-hvac/",
+  "scope": "/ckw-hvac/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1c2e54",
+  "icons": [
+    { "src": "images/ckw-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

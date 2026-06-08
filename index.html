@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CKW Heating & Cooling Inc. — Cambridge, Ontario's trusted HVAC company. Installation, repair & maintenance of furnaces, AC, heat pumps & water heaters. 24/7 service. Call +1 437 388 1777.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="CKW Heating & Cooling Inc. — Cambridge, Ontario's trusted HVAC company. Installation, repair & maintenance of furnaces, AC, heat pumps & water heaters. 24/7 emergency service across Cambridge, Kitchener, Waterloo, Guelph & Brantford. Call +1 437 388 1777.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="CKW Heating & Cooling Inc.">
+<meta name="keywords" content="HVAC Cambridge, furnace repair Cambridge ON, AC installation Kitchener, heat pump Waterloo, water heater Guelph, 24/7 HVAC emergency, TSSA licensed HVAC, heating and cooling Southwestern Ontario">
+<link rel="canonical" href="https://zaddyjohn-cyber.github.io/ckw-hvac/">
+<meta name="geo.region" content="CA-ON">
+<meta name="geo.placename" content="Cambridge, Ontario">
+<meta name="geo.position" content="43.209769;-80.5042216">
+<meta name="ICBM" content="43.209769, -80.5042216">
+<link rel="apple-touch-icon" href="images/ckw-logo.png">
+<link rel="manifest" href="manifest.webmanifest">
 <meta property="og:title" content="CKW Heating & Cooling Inc. | Cambridge, ON HVAC Company">
 <meta property="og:description" content="Residential & Commercial HVAC. TSSA Licensed. 24/7 Emergency Service across Southwestern Ontario.">
 <meta property="og:type" content="website">
@@ -27,7 +37,17 @@
   "email":"info@ckwheating.ca",
   "priceRange":"$$",
   "address":{"@type":"PostalAddress","addressLocality":"Cambridge","addressRegion":"ON","addressCountry":"CA"},
+  "geo":{"@type":"GeoCoordinates","latitude":43.209769,"longitude":-80.5042216},
+  "hasMap":"https://maps.app.goo.gl/3yPFsds9PZ1zaQza9",
   "areaServed":["Cambridge","Kitchener","Waterloo","Guelph","Brantford","Hamilton","Woodstock","Milton"],
+  "hasOfferCatalog":{"@type":"OfferCatalog","name":"HVAC Services","itemListElement":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Furnace Installation & Repair"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Air Conditioning Installation & Repair"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Heat Pump Installation"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Water Heater Installation"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Ventilation, HRV & ERV Systems"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Duct Work & Maintenance"}}
+  ]},
   "openingHoursSpecification":[
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:00"}
   ],
@@ -56,7 +76,12 @@
   --star:#f5a623;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+/* offset anchor jumps for sticky header (mobile + desktop) */
+section[id],div[id]{scroll-margin-top:84px}
+/* prevent layout shift while images load */
+.svc .ph,.hero-visual .big,.hero-visual .sm,.about-visual .main,.about-visual .inset,.why-visual,.gal-grid a,.fmini img,.cmap{background:var(--soft)}
+.herologo img{aspect-ratio:600/210}
 body{font-family:'Open Sans',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;overflow-x:hidden}
 h1,h2,h3,h4,h5{font-family:'Poppins',sans-serif;line-height:1.2;color:var(--navy)}
 a{text-decoration:none;color:inherit}
